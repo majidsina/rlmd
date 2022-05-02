@@ -1,0 +1,32 @@
+# python bytecode cache, CSVs, and documents
+*.pyc
+*.csv
+.vscode/
+.VSCodeCounter/
+
+# playground of new ideas
+notepad.py
+
+# output training data and PyTorch parameters (available upon request)
+results/
+
+# guidance environments
+envs/laminar_envs.py
+envs/two_stage_envs.py
+envs/counter_envs.py
+scripts/rl_laminar.py
+scripts/rl_two_stage.py
+scripts/rl_counter.py
+
+# advanced market environments
+main_fin.py
+scripts/rl_fin.py
+envs/finance_envs.py
+
+# unsupervised human migration model
+main_hm.py
+scripts/rl_hm.py
+human/
+
+# NLP-based meme generator
+memes/
