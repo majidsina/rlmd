@@ -1,7 +1,7 @@
 # Reinforcement Learning in Multiplicative Domains
 
 [![temp-rgrewal - rlmd](https://img.shields.io/static/v1?label=temp-rgrewal&message=rlmd&color=blue&logo=github)](https://github.com/temp-rgrewal/rlmd "Go to GitHub repo")
-[![GitHub release](https://img.shields.io/github/release/rgrewa1/rlmd)](https://github.com/temp-rgrewal/rlmd/releases)
+[![GitHub release](https://img.shields.io/github/release/temp-rgrewal/rlmd)](https://github.com/temp-rgrewal/rlmd/releases)
 [![License](https://img.shields.io/badge/License-AGPLv3-green)](https://github.com/temp-rgrewal/rlmd/blob/master/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
