@@ -41,7 +41,7 @@ from typing import List
 import tools.plots_figures as plots
 import tools.utils as utils
 from main import gym_envs
-from tools.input_tests import figure_tests
+from tests.input_tests import figure_tests
 
 # ADDITIVE ENVIRONMENTS
 

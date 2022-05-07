@@ -46,7 +46,7 @@ from opt_lev.lev_exp import (
     coin_galaxy_brain_lev,
     coin_smart_lev,
 )
-from tools.input_tests import coin_flip_tests
+from tests.input_tests import coin_flip_tests
 
 # fmt: off
 

@@ -30,8 +30,8 @@ from gym import spaces
 
 NDArrayFloat = npt.NDArray[np.float_]
 
+from tests.input_tests import dice_roll_env_tests, multi_env_tests
 from tools.env_resources import multi_dones
-from tools.input_tests import dice_roll_env_tests, multi_env_tests
 
 # fmt: off
 

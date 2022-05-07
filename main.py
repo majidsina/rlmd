@@ -272,7 +272,7 @@ inputs: dict = {
 
 if __name__ == "__main__":
 
-    from tools.input_tests import algo_method_checks, env_tests, learning_tests
+    from tests.input_tests import algo_method_checks, env_tests, learning_tests
     from tools.utils import (
         device_details,
         env_dynamics,

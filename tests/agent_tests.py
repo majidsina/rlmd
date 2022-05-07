@@ -1,6 +1,6 @@
 """
 title:                  agent_tests.py
-usage:                  python tools/agent_tests.py
+usage:                  python tests/agent_tests.py
 python version:         3.10
 
 code style:             black==22.3
@@ -27,7 +27,7 @@ sys.path.append("./")
 import time
 
 from main import gym_envs
-from tools.input_tests import agent_tests, algo_method_checks, env_tests, learning_tests
+from tests.input_tests import agent_tests, algo_method_checks, env_tests, learning_tests
 from tools.utils import (
     device_details,
     env_dynamics,
