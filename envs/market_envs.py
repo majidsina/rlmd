@@ -14,8 +14,6 @@ linkedin:               https://www.linkedin.com/in/rajagrewal
 Description:
     OpenAI Gym compatible environments for training an agent on
     simulated real market environments for all three investor categories.
-
-    Historical financial data is obtained from Stooq at https://stooq.com/.
 """
 
 import sys
