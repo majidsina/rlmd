@@ -2,6 +2,7 @@
 title:                  agent_tests.py
 usage:                  python tests/agent_tests.py
 python version:         3.10
+torch verison:          1.11
 
 code style:             black==22.3
 import style:           isort==5.10
