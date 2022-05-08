@@ -94,6 +94,13 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
 
     risk_dim = utils.multi_log_dim(inputs, n_gambles)
 
+    if inputs["test_agent"]:
+        if not os.path.exists("./results/multiplicative-test/data/" + inputs["env_id"]):
+            os.makedirs("./results/multiplicative-test/data/" + inputs["env_id"])
+    else:
+        if not os.path.exists("./results/multiplicative/data/" + inputs["env_id"]):
+            os.makedirs("./results/multiplicative/data/" + inputs["env_id"])
+
     for algo in inputs["algo_name"]:
 
         inputs["s_dist"] = inputs["sample_dist"][algo]
@@ -127,6 +134,7 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
                     ),
                     dtype=np.float32,
                 )
+
                 directory = utils.save_directory(inputs, results=True)
 
                 trial_risk_log = np.zeros(
@@ -404,11 +412,6 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
                         loss_params_log,
                     )
                     trial_risk_log[round, :count, :] = risk_log
-
-                    if not os.path.exists(
-                        "./results/multiplicative/data/" + inputs["env_id"]
-                    ):
-                        os.makedirs("./results/multiplicative/data/" + inputs["env_id"])
 
                     if inputs["n_trials"] == 1:
                         plots.plot_learning_curve(

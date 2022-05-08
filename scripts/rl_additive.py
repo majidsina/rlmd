@@ -71,6 +71,13 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
     # allow access to setting enviroment state and remove episode step limit
     env = env.env
 
+    if inputs["test_agent"]:
+        if not os.path.exists("./results/additive-test/data/" + inputs["env_id"]):
+            os.makedirs("./results/additive-test/data/" + inputs["env_id"])
+    else:
+        if not os.path.exists("./results/additive/data/" + inputs["env_id"]):
+            os.makedirs("./results/additive/data/" + inputs["env_id"])
+
     for algo in inputs["algo_name"]:
 
         inputs["s_dist"] = inputs["sample_dist"][algo]
@@ -104,6 +111,7 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
                     ),
                     dtype=np.float32,
                 )
+
                 directory = utils.save_directory(inputs, results=True)
 
                 for round in range(inputs["n_trials"]):
@@ -279,11 +287,6 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
                         logtemp_log,
                         loss_params_log,
                     )
-
-                    if not os.path.exists(
-                        "./results/additive/data/" + inputs["env_id"]
-                    ):
-                        os.makedirs("./results/additive/data/" + inputs["env_id"])
 
                     if inputs["n_trials"] == 1:
                         plots.plot_learning_curve(

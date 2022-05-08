@@ -106,6 +106,13 @@ def market_env(
 
     risk_dim = utils.market_log_dim(inputs, n_assets)
 
+    if inputs["test_agent"]:
+        if not os.path.exists("./results/market-test/data/" + inputs["env_id"]):
+            os.makedirs("./results/market-test/data/" + inputs["env_id"])
+    else:
+        if not os.path.exists("./results/market/data/" + inputs["env_id"]):
+            os.makedirs("./results/market/data/" + inputs["env_id"])
+
     for algo in inputs["algo_name"]:
 
         inputs["s_dist"] = inputs["sample_dist"][algo]
@@ -139,6 +146,7 @@ def market_env(
                     ),
                     dtype=np.float32,
                 )
+
                 directory = utils.save_directory(inputs, results=True)
 
                 trial_risk_log = np.zeros(
@@ -441,14 +449,6 @@ def market_env(
                         loss_params_log,
                     )
                     trial_risk_log[round, :count, :] = risk_log
-
-                    if not os.path.exists("./results/market/data/" + inputs["env_id"]):
-                        os.makedirs("./results/market/data/" + inputs["env_id"])
-
-                    if inputs["n_trials"] == 1:
-                        plots.plot_learning_curve(
-                            inputs, trial_log[round], directory + ".png"
-                        )
 
                     round_end = time.perf_counter()
                     round_time = round_end - round_start

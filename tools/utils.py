@@ -28,34 +28,6 @@ import torch as T
 NDArrayFloat = npt.NDArray[np.float_]
 
 
-def input_initialisation(
-    inputs: dict,
-    envs: List[int],
-    algo: List[str],
-    critic: List[str],
-    multi_steps: List[int],
-) -> dict:
-    """
-    Add training initialisation details to the inputs dictionary.
-
-    Parameters:
-        inputs: dictionary containing all user-specified agent execution details.
-
-    Returns:
-        new_inputs: inputs dictionary with initialisation details
-    """
-    new_inputs = {
-        "envs": envs,
-        "ENV_KEY": None,
-        "algo_name": [a.upper() for a in algo],
-        "critic_loss": [l.upper() for l in critic],
-        "bootstraps": multi_steps,
-        **inputs,
-    }
-
-    return new_inputs
-
-
 def device_details(inputs: dict) -> None:
     """
     Summary of CPU thread allocation and CUDA GPU details.
@@ -102,6 +74,35 @@ def device_details(inputs: dict) -> None:
     print(
         "--------------------------------------------------------------------------------"
     )
+
+
+def input_initialisation(
+    inputs: dict,
+    envs: List[int],
+    algo: List[str],
+    critic: List[str],
+    multi_steps: List[int],
+) -> dict:
+    """
+    Add training initialisation details to the inputs dictionary.
+
+    Parameters:
+        inputs: dictionary containing all user-specified agent execution details.
+
+    Returns:
+        new_inputs: inputs dictionary with initialisation details
+    """
+    new_inputs = {
+        "test_agent": False,
+        "envs": envs,
+        "ENV_KEY": None,
+        "algo_name": [a.upper() for a in algo],
+        "critic_loss": [l.upper() for l in critic],
+        "bootstraps": multi_steps,
+        **inputs,
+    }
+
+    return new_inputs
 
 
 def env_dynamics(gym_envs: Dict[str, list]) -> list:
@@ -217,6 +218,10 @@ def save_directory(inputs: dict, results: bool) -> str:
     if results == False:
         dir[2] = "models/"
         dir.append("t" + str(inputs["trial"]))
+
+    if inputs["test_agent"]:
+        dir[1] = dir[1][:-1]
+        dir[1] += "-test/"
 
     directory = "".join(dir)
 

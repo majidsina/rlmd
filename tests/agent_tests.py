@@ -25,6 +25,7 @@ import sys
 
 sys.path.append("./")
 
+import shutil
 import time
 
 from main import gym_envs
@@ -242,6 +243,8 @@ if __name__ == "__main__":
         env_splits[6],
     )
 
+    inputs["test_agent"] = True
+
     start_time = time.perf_counter()
 
     for env_key in envs:
@@ -286,6 +289,15 @@ if __name__ == "__main__":
             total_time, total_time / 60, total_time / 3600
         )
     )
+
+    # CLEAN UP TEST FILES
+
+    if TEST_PYBULLET == 1:
+        shutil.rmtree("./results/additive-test/")
+    if TEST_MULTI == 1 or TEST_MULTI_SH == 1:
+        shutil.rmtree("./results/multiplicative-test/")
+    if TEST_MARKET == 1:
+        shutil.rmtree("./results/market-test/")
 
     print(
         "--------------------------------------------------------------------------------"

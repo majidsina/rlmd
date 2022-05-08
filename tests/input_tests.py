@@ -707,6 +707,7 @@ def learning_tests(inputs: dict) -> None:
     assert isinstance(inputs, dict), td
 
     # training input tests
+    assert isinstance(inputs["test_agent"], bool), tb
     assert isinstance(inputs["algo_name"], list), tl
     assert set(inputs["algo_name"]).issubset(
         set(["SAC", "TD3"])

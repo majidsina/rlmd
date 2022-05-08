@@ -144,6 +144,10 @@ class Agent_td3:
             case "GUD":
                 dir += "guidance/"
 
+        if inputs["test_agent"]:
+            dir = dir[:-1]
+            dir += "-test/"
+
         dir += "models/" + str(inputs["env_id"])
 
         if not os.path.exists(dir):
