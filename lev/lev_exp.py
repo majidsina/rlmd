@@ -44,7 +44,10 @@ def param_range(low: float, high: float, increment: float):
     params = [(x + mod) * increment for x in range(min, max, 1)]
 
     if 0 in params:
-        params.remove(0)
+        if len(params) == 1:
+            pass
+        else:
+            params.remove(0)
 
     return params
 

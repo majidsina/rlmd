@@ -1,6 +1,6 @@
 """
 title:                  dice_roll_sh.py
-usage:                  python opt_lev/dice_roll_sh.py
+usage:                  python lev/dice_roll_sh.py
 python version:         3.10
 torch verison:          1.11
 
@@ -13,7 +13,8 @@ email:                  <raja (_] grewal1 [at} pm {dot) me>
 linkedin:               https://www.linkedin.com/in/rajagrewal
 
 Description:
-    Execute optimal leverage experiments for the trinary dice roll with safe haven gamble based on
+    Execute optimal leverage experiments for the trinary dice roll with safe haven gamble
+    based on
     https://www.wiley.com/en-us/Safe+Haven%3A+Investing+for+Financial+Storms-p-9781119401797.
 
 Instructions:
@@ -39,12 +40,12 @@ from torch.distributions.categorical import Categorical
 NDArrayFloat = npt.NDArray[np.float_]
 
 import tools.plots_multiverse as plots
-from opt_lev.lev_exp import dice_sh_fixed_final_lev, dice_sh_smart_lev
+from lev.lev_exp import dice_sh_fixed_final_lev, dice_sh_smart_lev
 from tests.input_tests import dice_roll_sh_tests
 
 # fmt: off
 
-INVESTORS = 1e1             # number of random investors
+INVESTORS = 1e6             # number of random investors
 HORIZON = 2e3               # total time steps
 TOP = INVESTORS * 1e-4      # define number of top performers
 VALUE_0 = 1e2               # initial portfolio value of each investor

@@ -1,6 +1,6 @@
 """
 title:                  gbm.py
-usage:                  python opt_lev/gbm.py
+usage:                  python lev/gbm.py
 python version:         3.10
 torch verison:          1.11
 
@@ -44,7 +44,7 @@ from torch.distributions.normal import Normal
 NDArrayFloat = npt.NDArray[np.float_]
 
 import tools.plots_multiverse as plots
-from opt_lev.lev_exp import gbm_fixed_final_lev, gbm_smart_lev
+from lev.lev_exp import gbm_fixed_final_lev, gbm_smart_lev
 from tests.input_tests import gbm_tests
 
 # fmt: off

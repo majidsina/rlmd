@@ -91,7 +91,7 @@ def coin_flip_tests(
     Conduct tests on coin flip optimal leverage experiment.
 
     Parameters:
-        Refer to `./opt_lev/coin_flip.py` for input details.
+        Refer to `./lev/coin_flip.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
     assert INVESTORS > 0
@@ -213,7 +213,7 @@ def dice_roll_tests(
     Conduct tests on dice roll optimal leverage experiment.
 
     Parameters:
-        Refer to `./opt_lev/dice_roll.py` for input details.
+        Refer to `./lev/dice_roll.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
     assert INVESTORS > 0
@@ -311,7 +311,7 @@ def dice_roll_sh_tests(
     Conduct tests on dice roll (safe haven) optimal leverage experiment.
 
     Parameters:
-        Refer to `./opt_lev/dice_roll_sh.py` for input details.
+        Refer to `./lev/dice_roll_sh.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
     assert INVESTORS > 0
@@ -387,7 +387,7 @@ def gbm_tests(
     Conduct tests on GBM optimal leverage experiment.
 
     Parameters:
-        Refer to `./opt_lev/dice_roll.py` for input details.
+        Refer to `./lev/dice_roll.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
     assert INVESTORS > 0

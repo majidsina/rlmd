@@ -49,7 +49,7 @@ The breakdown for optimal leverage experiments, additive agents, multiplicative 
 ## Usage
 Using the latest [release](https://github.com/temp-rgrewal/rlmd/releases) is recommended where we adhere to [semantic](https://semver.org/) versioning.
 
-Binary coin flip, trinary die roll, and geometric Brownian motion (GBM) experiments pertaining to empirical optimal leverages are contained in the `opt_lev/` directory with instructions provided inside each of the files.
+Binary coin flip, trinary die roll, and geometric Brownian motion (GBM) experiments pertaining to empirical optimal leverages are contained in the `lev/` directory with instructions provided inside each of the files.
 
 Training on financial market environments requires the generation of historical data sourced from [Stooq](https://stooq.com/) using `scripts/gen_market_data.py` with customisation options regarding asset selection and dates available within the file.
 
@@ -73,7 +73,7 @@ pip3 install -r requirements--no-deps.txt
 ```
 Optimal leverage roll experiments for a particular "gamble" are conducted with:
 ```commandline
-python opt_lev/gamble.py
+python lev/gamble.py
 ```
 Historical financial market data is sourced and aggregated using:
 ```commandline
