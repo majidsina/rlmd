@@ -57,7 +57,7 @@ All reinforcement learning agent training is executed using `main.py` with instr
 
 Final aggregated figures for all agent experiments that share common training parameters are generated using `scripts/gen_figures.py`. The specific aggregation details must be input in the file.
 
-Comprehensive tests during compilation have been written for all user inputs. The script will also terminate if critic network backpropagation fails mainly due to the use of strong outlier-supressing critic loss functions and or divergence in particular environment state components. Furthermore, an explicit test run for initial stability of agent training can be conducted using `tests/agent_tests.py` for a variety of scenarios.
+Comprehensive tests during compilation have been written for all user inputs. The script will also terminate if critic network backpropagation fails mainly due to the use of strong outlier-supressing critic loss functions and or divergence in particular environment state components. Furthermore, an explicit test run for initial stability of agent training can be conducted using `tests/agent_tests.py` for a variety of scenarios. Similarly, one can use `tests/lev_tests.py` to conduct tests on a reduced-scale of all optimal leverage experiments.
 
 Accessing the code involves the following commands:
 ```commandline
