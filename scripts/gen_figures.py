@@ -38,6 +38,7 @@ sys.path.append("./")
 import os
 from typing import List
 
+import tools.aggregate_data as aggregate_data
 import tools.plots_figures as plots
 import tools.utils as utils
 from main import gym_envs
@@ -184,7 +185,7 @@ mkt_inputs_sac["s_dist"] = "N"
 
 # select reward dynamics to be plotted
 # integer selection using False == 0 and True == 1
-PLOT_ADDITIVE = 1
+PLOT_ADDITIVE = 0
 PLOT_MULTIPLICATIVE = 0
 PLOT_MULTIPLICATIVE_SH = 0
 PLOT_MARKET = 0
@@ -250,7 +251,8 @@ if __name__ == "__main__":
 
         # critic loss functions
         path_loss: str = "add_loss"
-        loss_data = utils.add_loss_aggregate(
+
+        loss_data = aggregate_data.add_loss_aggregate(
             add_envs, gym_envs, add_inputs, add_algos, add_loss
         )
         (
@@ -263,7 +265,8 @@ if __name__ == "__main__":
             cshadow,
             cmax,
             keqv,
-        ) = utils.add_summary(add_inputs, loss_data)
+        ) = aggregate_data.add_summary(add_inputs, loss_data)
+
         plots.plot_add(
             add_inputs,
             add_name,
@@ -278,15 +281,18 @@ if __name__ == "__main__":
             keqv,
             path + path_loss,
         )
+
         plots.plot_add_temp(
             add_inputs, add_name, add_loss, False, logtemp, path + path_loss
         )
 
         # multi-step returns
         path_multi: str = "add_multi"
-        multi_data = utils.add_multi_aggregate(
+
+        multi_data = aggregate_data.add_multi_aggregate(
             add_envs, gym_envs, add_inputs, add_algos, add_multi
         )
+
         (
             reward,
             closs,
@@ -297,7 +303,8 @@ if __name__ == "__main__":
             cshadow,
             cmax,
             keqv,
-        ) = utils.add_summary(add_inputs, multi_data)
+        ) = aggregate_data.add_summary(add_inputs, multi_data)
+
         plots.plot_add(
             add_inputs,
             add_name,
@@ -312,6 +319,7 @@ if __name__ == "__main__":
             keqv,
             path + path_multi,
         )
+
         plots.plot_add_temp(
             add_inputs, add_name, add_multi, True, logtemp, path + path_multi
         )
@@ -332,9 +340,10 @@ if __name__ == "__main__":
 
             algo = "_td3" if mul_inputs == mul_inputs_td3 else "_sac"
 
-            coin_inv_n1 = utils.mul_inv_aggregate(
+            coin_inv_n1 = aggregate_data.mul_inv_aggregate(
                 coin_keys, n_gambles[0], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_1,
                 lev_1,
@@ -346,7 +355,8 @@ if __name__ == "__main__":
                 cmax_1,
                 keqv_1,
                 ls1,
-            ) = utils.mul_inv_n_summary(mul_inputs, coin_inv_n1)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, coin_inv_n1)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_1,
@@ -361,9 +371,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[0],
             )
 
-            coin_inv_n2 = utils.mul_inv_aggregate(
+            coin_inv_n2 = aggregate_data.mul_inv_aggregate(
                 coin_keys, n_gambles[1], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_2,
                 lev_2,
@@ -375,7 +386,8 @@ if __name__ == "__main__":
                 cmax_2,
                 keqv_2,
                 ls2,
-            ) = utils.mul_inv_n_summary(mul_inputs, coin_inv_n2)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, coin_inv_n2)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_2,
@@ -390,9 +402,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[1],
             )
 
-            coin_inv_n3 = utils.mul_inv_aggregate(
+            coin_inv_n3 = aggregate_data.mul_inv_aggregate(
                 coin_keys, n_gambles[2], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_3,
                 lev_3,
@@ -404,7 +417,8 @@ if __name__ == "__main__":
                 cmax_3,
                 keqv_3,
                 ls3,
-            ) = utils.mul_inv_n_summary(mul_inputs, coin_inv_n3)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, coin_inv_n3)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_3,
@@ -451,6 +465,7 @@ if __name__ == "__main__":
                 T=1,
                 V_0=1,
             )
+
             plots.plot_inv_all_n_train(
                 mul_inputs,
                 closs_1,
@@ -475,9 +490,10 @@ if __name__ == "__main__":
 
             algo = "_td3" if mul_inputs == mul_inputs_td3 else "_sac"
 
-            dice_inv_n1 = utils.mul_inv_aggregate(
+            dice_inv_n1 = aggregate_data.mul_inv_aggregate(
                 dice_keys, n_gambles[0], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_1,
                 lev_1,
@@ -489,7 +505,8 @@ if __name__ == "__main__":
                 cmax_1,
                 keqv_1,
                 ls1,
-            ) = utils.mul_inv_n_summary(mul_inputs, dice_inv_n1)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, dice_inv_n1)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_1,
@@ -504,9 +521,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[0],
             )
 
-            dice_inv_n2 = utils.mul_inv_aggregate(
+            dice_inv_n2 = aggregate_data.mul_inv_aggregate(
                 dice_keys, n_gambles[1], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_2,
                 lev_2,
@@ -518,7 +536,8 @@ if __name__ == "__main__":
                 cmax_2,
                 keqv_2,
                 ls2,
-            ) = utils.mul_inv_n_summary(mul_inputs, dice_inv_n2)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, dice_inv_n2)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_2,
@@ -533,9 +552,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[1],
             )
 
-            dice_inv_n3 = utils.mul_inv_aggregate(
+            dice_inv_n3 = aggregate_data.mul_inv_aggregate(
                 dice_keys, n_gambles[2], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_3,
                 lev_3,
@@ -547,7 +567,8 @@ if __name__ == "__main__":
                 cmax_3,
                 keqv_3,
                 ls3,
-            ) = utils.mul_inv_n_summary(mul_inputs, dice_inv_n3)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, dice_inv_n3)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_3,
@@ -594,6 +615,7 @@ if __name__ == "__main__":
                 T=1,
                 V_0=1,
             )
+
             plots.plot_inv_all_n_train(
                 mul_inputs,
                 closs_1,
@@ -621,9 +643,10 @@ if __name__ == "__main__":
 
             algo = "_td3" if mul_inputs == mul_inputs_td3 else "_sac"
 
-            gbm_inv_n1 = utils.mul_inv_aggregate(
+            gbm_inv_n1 = aggregate_data.mul_inv_aggregate(
                 gbm_keys, n_gambles[0], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_1,
                 lev_1,
@@ -635,7 +658,8 @@ if __name__ == "__main__":
                 cmax_1,
                 keqv_1,
                 ls1,
-            ) = utils.mul_inv_n_summary(mul_inputs, gbm_inv_n1)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, gbm_inv_n1)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_1,
@@ -650,9 +674,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[0],
             )
 
-            gbm_inv_n2 = utils.mul_inv_aggregate(
+            gbm_inv_n2 = aggregate_data.mul_inv_aggregate(
                 gbm_keys, n_gambles[1], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_2,
                 lev_2,
@@ -664,7 +689,8 @@ if __name__ == "__main__":
                 cmax_2,
                 keqv_2,
                 ls2,
-            ) = utils.mul_inv_n_summary(mul_inputs, gbm_inv_n2)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, gbm_inv_n2)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_2,
@@ -679,9 +705,10 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[1],
             )
 
-            gbm_inv_n3 = utils.mul_inv_aggregate(
+            gbm_inv_n3 = aggregate_data.mul_inv_aggregate(
                 gbm_keys, n_gambles[2], gym_envs, mul_inputs, safe_haven=False
             )
+
             (
                 reward_3,
                 lev_3,
@@ -693,7 +720,8 @@ if __name__ == "__main__":
                 cmax_3,
                 keqv_3,
                 ls3,
-            ) = utils.mul_inv_n_summary(mul_inputs, gbm_inv_n3)
+            ) = aggregate_data.mul_inv_n_summary(mul_inputs, gbm_inv_n3)
+
             plots.plot_inv(
                 mul_inputs,
                 reward_3,
@@ -752,6 +780,7 @@ if __name__ == "__main__":
                 T=1,
                 V_0=1,
             )
+
             plots.plot_inv_all_n_train(
                 mul_inputs,
                 closs_1,
@@ -785,9 +814,10 @@ if __name__ == "__main__":
             l_min = -0.25 if spitz_inputs == spitz_inputs_td3 else None
             l_max = 12 / 11 if spitz_inputs == spitz_inputs_td3 else 12 / 11
 
-            dice_sh = utils.mul_inv_aggregate(
+            dice_sh = aggregate_data.mul_inv_aggregate(
                 dice_sh_keys, 1, gym_envs, spitz_inputs, safe_haven=True
             )
+
             (
                 reward_sh,
                 lev_sh,
@@ -799,7 +829,8 @@ if __name__ == "__main__":
                 cmax_sh,
                 keqv_sh,
                 levsh_sh,
-            ) = utils.mul_inv_n_summary(spitz_inputs, dice_sh)
+            ) = aggregate_data.mul_inv_n_summary(spitz_inputs, dice_sh)
+
             plots.plot_safe_haven(
                 spitz_inputs,
                 reward_sh,
@@ -822,10 +853,11 @@ if __name__ == "__main__":
                 V_0=1,
             )
 
-        dice_sh_a1 = utils.mul_inv_aggregate(
+        dice_sh_a1 = aggregate_data.mul_inv_aggregate(
             dice_sh_keys, 1, gym_envs, spitz_inputs_sac, safe_haven=True
         )
-        dice_sh_a2 = utils.mul_inv_aggregate(
+
+        dice_sh_a2 = aggregate_data.mul_inv_aggregate(
             dice_sh_keys, 1, gym_envs, spitz_inputs_td3, safe_haven=True
         )
 
@@ -840,7 +872,8 @@ if __name__ == "__main__":
             cmax_sh1,
             keqv_sh1,
             levsh_sh1,
-        ) = utils.mul_inv_n_summary(spitz_inputs_sac, dice_sh_a1)
+        ) = aggregate_data.mul_inv_n_summary(spitz_inputs_sac, dice_sh_a1)
+
         (
             reward_sh2,
             lev_sh2,
@@ -852,7 +885,7 @@ if __name__ == "__main__":
             cmax_sh2,
             keqv_sh2,
             levsh_sh2,
-        ) = utils.mul_inv_n_summary(spitz_inputs_td3, dice_sh_a2)
+        ) = aggregate_data.mul_inv_n_summary(spitz_inputs_td3, dice_sh_a2)
 
         g_min, g_max = [-5, -2], [4, 4]
         l_min, l_max = [None, -0.25], [12 / 11, 12 / 11]
@@ -872,6 +905,7 @@ if __name__ == "__main__":
             T=1,
             V_0=1,
         )
+
         plots.plot_sh_train(
             spitz_inputs_sac,
             closs_sh1,
@@ -892,9 +926,10 @@ if __name__ == "__main__":
 
             algo = "_td3" if ins_inputs == ins_inputs_td3 else "_sac"
 
-            dice_inv_a = utils.mul_inv_aggregate(
+            dice_inv_a = aggregate_data.mul_inv_aggregate(
                 dice_sh_a_keys, 1, gym_envs, ins_inputs, safe_haven=True
             )
+
             (
                 reward_a,
                 lev_a,
@@ -906,7 +941,10 @@ if __name__ == "__main__":
                 cmax_a,
                 keqv_a,
                 levsh_a,
-            ) = utils.mul_inv_n_summary(ins_inputs, dice_inv_a, safe_haven=True)
+            ) = aggregate_data.mul_inv_n_summary(
+                ins_inputs, dice_inv_a, safe_haven=True
+            )
+
             plots.plot_safe_haven(
                 ins_inputs,
                 reward_a,
@@ -923,9 +961,10 @@ if __name__ == "__main__":
                 inv="a",
             )
 
-            dice_inv_b = utils.mul_inv_aggregate(
+            dice_inv_b = aggregate_data.mul_inv_aggregate(
                 dice_sh_b_keys, 1, gym_envs, ins_inputs, safe_haven=True
             )
+
             (
                 reward_b,
                 lev_b,
@@ -937,7 +976,10 @@ if __name__ == "__main__":
                 ctail_b,
                 keqv_b,
                 levsh_b,
-            ) = utils.mul_inv_n_summary(ins_inputs, dice_inv_b, safe_haven=True)
+            ) = aggregate_data.mul_inv_n_summary(
+                ins_inputs, dice_inv_b, safe_haven=True
+            )
+
             plots.plot_safe_haven(
                 ins_inputs,
                 reward_b,
@@ -954,9 +996,10 @@ if __name__ == "__main__":
                 inv="b",
             )
 
-            dice_inv_c = utils.mul_inv_aggregate(
+            dice_inv_c = aggregate_data.mul_inv_aggregate(
                 dice_sh_c_keys, 1, gym_envs, ins_inputs, safe_haven=True
             )
+
             (
                 reward_c,
                 lev_c,
@@ -968,7 +1011,10 @@ if __name__ == "__main__":
                 ctail_c,
                 keqv_c,
                 levsh_c,
-            ) = utils.mul_inv_n_summary(ins_inputs, dice_inv_c, safe_haven=True)
+            ) = aggregate_data.mul_inv_n_summary(
+                ins_inputs, dice_inv_c, safe_haven=True
+            )
+
             plots.plot_safe_haven(
                 ins_inputs,
                 reward_c,
@@ -1015,6 +1061,7 @@ if __name__ == "__main__":
                 T=1,
                 V_0=1,
             )
+
             plots.plot_inv_sh_train(
                 ins_inputs,
                 closs_a,
@@ -1059,9 +1106,11 @@ if __name__ == "__main__":
 
                 e = 0
                 for env in invs:
-                    equity_inv_o = utils.mkt_obs_aggregate(
+
+                    equity_inv_o = aggregate_data.mkt_obs_aggregate(
                         env, obs_days, action_days, gym_envs, mkt_inputs
                     )
+
                     (
                         reward,
                         closs,
@@ -1071,7 +1120,8 @@ if __name__ == "__main__":
                         keqv,
                         mstart,
                         elength,
-                    ) = utils.mkt_obs_summary(mkt_inputs, equity_inv_o)
+                    ) = aggregate_data.mkt_obs_summary(mkt_inputs, equity_inv_o)
+
                     plots.plot_mkt_inv(
                         mkt_inputs,
                         reward,
@@ -1093,9 +1143,11 @@ if __name__ == "__main__":
         for invs in mkt_evs:
             e = 0
             for env in invs:
+
                 equity_inv_a1 = utils.mkt_obs_aggregate(
                     env, obs_days, action_days, gym_envs, mkt_inputs_sac
                 )
+
                 equity_inv_a2 = utils.mkt_obs_aggregate(
                     env, obs_days, action_days, gym_envs, mkt_inputs_td3
                 )
@@ -1109,7 +1161,8 @@ if __name__ == "__main__":
                     keqv_1,
                     mstart_1,
                     elength_1,
-                ) = utils.mkt_obs_summary(mkt_inputs_sac, equity_inv_a1)
+                ) = aggregate_data.mkt_obs_summary(mkt_inputs_sac, equity_inv_a1)
+
                 (
                     reward_2,
                     closs_2,
@@ -1119,7 +1172,7 @@ if __name__ == "__main__":
                     keqv_2,
                     mstart_2,
                     elength_2,
-                ) = utils.mkt_obs_summary(mkt_inputs_td3, equity_inv_a2)
+                ) = aggregate_data.mkt_obs_summary(mkt_inputs_td3, equity_inv_a2)
 
                 plots.plot_mkt_inv_perf(
                     mkt_inputs_sac,
@@ -1134,6 +1187,7 @@ if __name__ == "__main__":
                     path + "mkt_" + mkt_name[e] + "_perf" + inv_str[i],
                     bin_size=120,
                 )
+
                 plots.plot_mkt_inv_train(
                     mkt_inputs_sac,
                     closs_1,

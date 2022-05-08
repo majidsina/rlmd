@@ -29,6 +29,7 @@ import envs.coin_flip_envs as coin_flip_envs
 import envs.dice_roll_envs as dice_roll_envs
 import envs.dice_roll_sh_envs as dice_roll_sh_envs
 import envs.gbm_envs as gbm_envs
+import tests.learning_tests as learning_tests
 import tools.eval_episodes as eval_episodes
 import tools.plots_summary as plots
 import tools.utils as utils
@@ -217,7 +218,7 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
                             ):
                                 loss, logtemp, loss_params = agent.learn()
 
-                                utils.critic_learning(
+                                learning_tests.critic_learning(
                                     cum_steps,
                                     inputs["mini_batch_size"],
                                     episode,

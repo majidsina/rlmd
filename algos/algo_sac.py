@@ -15,6 +15,10 @@ Description:
     Responsible for executing the Soft Actor-Critic (SAC) algorithm.
 """
 
+import sys
+
+sys.path.append("./")
+
 import os
 from typing import List, Tuple
 
@@ -24,7 +28,8 @@ import torch as T
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-import tools.critic_loss as closs
+import tests.learning_tests as learning_tests
+import tools.critic_loss as critic
 import tools.utils as utils
 from algos.networks_sac import ActorNetwork, CriticNetwork
 from tools.replay import ReplayBuffer
@@ -408,8 +413,8 @@ class Agent_sac:
         q1, q2 = q1.view(self.batch_size, 1), q2.view(self.batch_size, 1)
 
         # updates CIM kernel size empirically
-        kernel_1 = closs.cim_size(q1, batch_target).cpu().numpy()
-        kernel_2 = closs.cim_size(q2, batch_target).cpu().numpy()
+        kernel_1 = critic.cim_size(q1, batch_target).cpu().numpy()
+        kernel_2 = critic.cim_size(q2, batch_target).cpu().numpy()
 
         # backpropogation of critic loss
         self.critic_1.optimiser.zero_grad(set_to_none=True)
@@ -426,7 +431,7 @@ class Agent_sac:
             q2_max,
             q2_shadow,
             q2_alpha,
-        ) = closs.loss_function(
+        ) = critic.loss_function(
             q1,
             self.cauchy_scale_1,
             kernel_1,
@@ -458,15 +463,17 @@ class Agent_sac:
 
         # updates Cauchy scale parameter using the Nagy algorithm
         self.cauchy_scale_1 = (
-            closs.nagy_algo(q1, batch_target, self.cauchy_scale_1).cpu().numpy()
+            critic.nagy_algo(q1, batch_target, self.cauchy_scale_1).cpu().numpy()
         )
         self.cauchy_scale_2 = (
-            closs.nagy_algo(q2, batch_target, self.cauchy_scale_2).cpu().numpy()
+            critic.nagy_algo(q2, batch_target, self.cauchy_scale_2).cpu().numpy()
         )
 
         self.learn_step_cntr += 1
 
-        utils.sac_critic_stability(self.learn_step_cntr, q1, q2, soft_q, batch_target)
+        learning_tests.sac_critic_stability(
+            self.learn_step_cntr, q1, q2, soft_q, batch_target
+        )
 
         if self.learn_step_cntr % self.target_critic_update == 0:
             self._update_critic_parameters()
