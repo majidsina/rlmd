@@ -25,6 +25,7 @@ import sys
 
 sys.path.append("./")
 
+import os
 import shutil
 import time
 
@@ -178,47 +179,55 @@ inputs = {
 
 # fmt: on
 
-# CONDUCT TESTS
-agent_tests(
-    TEST_PYBULLET,
-    TEST_MULTI,
-    TEST_MULTI_SH,
-    TEST_MARKET,
-    TEST_SAC,
-    TEST_TD3,
-    TEST_CRITICS_EXTRA,
-    TEST_CRITICS_RARE,
-    TEST_MULTI_STEPS,
-)
-
-envs = []
-# arbitrarily selected environments to be tested
-if TEST_PYBULLET:
-    envs += [4, 7]
-if TEST_MULTI:
-    envs += [14, 19, 21]
-if TEST_MULTI_SH:
-    envs += [23, 25]
-if TEST_MARKET:
-    envs += [27, 37, 47]
-
-algo = []
-if TEST_SAC:
-    algo.append("SAC")
-if TEST_TD3:
-    algo.append("TD3")
-
-critic = ["MSE"]
-if TEST_CRITICS_EXTRA:
-    critic += ["HUB", "MAE", "HSC"]
-if TEST_CRITICS_RARE:
-    critic += ["CAU", "TCAU", "CIM", "MSE2", "MSE4", "MSE6"]
-
-multi_steps = [1]
-if TEST_MULTI_STEPS:
-    multi_steps += [3, 7]
-
 if __name__ == "__main__":
+
+    # CONDUCT TESTS
+    agent_tests(
+        TEST_PYBULLET,
+        TEST_MULTI,
+        TEST_MULTI_SH,
+        TEST_MARKET,
+        TEST_SAC,
+        TEST_TD3,
+        TEST_CRITICS_EXTRA,
+        TEST_CRITICS_RARE,
+        TEST_MULTI_STEPS,
+    )
+
+    envs = []
+    # arbitrarily selected environments to be tested
+    if TEST_PYBULLET:
+        envs += [4, 7]
+    if TEST_MULTI:
+        envs += [14, 19, 21]
+    if TEST_MULTI_SH:
+        envs += [23, 25]
+    if TEST_MARKET:
+        envs += [27, 37, 47]
+
+    algo = []
+    if TEST_SAC:
+        algo.append("SAC")
+    if TEST_TD3:
+        algo.append("TD3")
+
+    critic = ["MSE"]
+    if TEST_CRITICS_EXTRA:
+        critic += ["HUB", "MAE", "HSC"]
+    if TEST_CRITICS_RARE:
+        critic += ["CAU", "TCAU", "CIM", "MSE2", "MSE4", "MSE6"]
+
+    multi_steps = [1]
+    if TEST_MULTI_STEPS:
+        multi_steps += [3, 7]
+
+    # clean-up test files from earlier uncompleted tests
+    if os.path.exists("./results/additive-test/"):
+        shutil.rmtree("./results/additive-test/")
+    if os.path.exists("./results/multiplicative-test/"):
+        shutil.rmtree("./results/multiplicative-test/")
+    if os.path.exists("./results/market-test/"):
+        shutil.rmtree("./results/market-test/")
 
     device_details(inputs)
 

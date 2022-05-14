@@ -182,11 +182,14 @@ if __name__ == "__main__":
 
     start_time = time.perf_counter()
 
-    if not os.path.exists(path_results):
-        os.makedirs(path_results)
+    # clean-up test files from earlier uncompleted tests
+    if os.path.exists(path_results):
+        shutil.rmtree(path_results)
+    if os.path.exists(path_figs):
+        shutil.rmtree(path_figs)
 
-    if not os.path.exists(path_figs):
-        os.makedirs(path_figs)
+    os.makedirs(path_results)
+    os.makedirs(path_figs)
 
     device = T.device("cuda:0") if VRAM == True else T.device("cpu")
     T.manual_seed(420)
