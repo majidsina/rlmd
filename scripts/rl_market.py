@@ -29,10 +29,10 @@ import numpy.typing as npt
 NDArrayFloat = npt.NDArray[np.float_]
 
 import envs.market_envs as market_envs
+import plotting.plots_summary as plots
 import tests.learning_tests as learning_tests
 import tools.env_resources as env_resources
 import tools.eval_episodes as eval_episodes
-import tools.plots_summary as plots
 import tools.utils as utils
 from algos.algo_sac import Agent_sac
 from algos.algo_td3 import Agent_td3

@@ -39,7 +39,7 @@ from torch.distributions.bernoulli import Bernoulli
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-import tools.plots_multiverse as plots
+import plotting.plots_multiverse as plots
 from lev.lev_exp import (
     coin_big_brain_lev,
     coin_fixed_final_lev,

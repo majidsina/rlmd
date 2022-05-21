@@ -39,7 +39,7 @@ from torch.distributions.categorical import Categorical
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-import tools.plots_multiverse as plots
+import plotting.plots_multiverse as plots
 from lev.lev_exp import dice_sh_fixed_final_lev, dice_sh_smart_lev
 from tests.input_tests import dice_roll_sh_tests
 

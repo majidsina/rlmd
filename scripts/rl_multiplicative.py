@@ -29,9 +29,9 @@ import envs.coin_flip_envs as coin_flip_envs
 import envs.dice_roll_envs as dice_roll_envs
 import envs.dice_roll_sh_envs as dice_roll_sh_envs
 import envs.gbm_envs as gbm_envs
+import plotting.plots_summary as plots
 import tests.learning_tests as learning_tests
 import tools.eval_episodes as eval_episodes
-import tools.plots_summary as plots
 import tools.utils as utils
 from algos.algo_sac import Agent_sac
 from algos.algo_td3 import Agent_td3
