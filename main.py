@@ -3,7 +3,7 @@ title:                  main.py
 usage:                  python main.py
 python version:         3.10
 torch verison:          1.11
-gym version:            0.23
+gym version:            0.24
 pybullet version:       3.2
 
 code style:             black==22.3

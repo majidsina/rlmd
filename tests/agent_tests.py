@@ -3,6 +3,8 @@ title:                  agent_tests.py
 usage:                  python tests/agent_tests.py
 python version:         3.10
 torch verison:          1.11
+gym version:            0.24
+pybullet version:       3.2
 
 code style:             black==22.3
 import style:           isort==5.10

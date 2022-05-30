@@ -1,7 +1,7 @@
 """
 title:                  gbm_envs.py
 python version:         3.10
-gym version:            0.23
+gym version:            0.24
 
 code style:             black==22.3
 import style:           isort==5.10

@@ -2,7 +2,7 @@
 title:                  eval_episodes.py
 python version:         3.10
 torch verison:          1.11
-gym version:            0.23
+gym version:            0.24
 pybullet version:       3.2
 
 code style:             black==22.3
@@ -94,7 +94,7 @@ def eval_additive(
         )
     )
 
-    eval_env = gym.make(inputs["env_id"])
+    eval_env = gym.make(inputs["env_id"], disable_env_checker=False)
 
     for eval in range(int(inputs["n_eval"])):
         start_time = time.perf_counter()

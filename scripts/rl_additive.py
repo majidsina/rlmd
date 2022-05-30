@@ -43,7 +43,7 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
         gym_envs: all environment details
         inputs: all training and evaluation details
     """
-    env = gym.make(gym_envs[str(inputs["ENV_KEY"])][0])
+    env = gym.make(gym_envs[str(inputs["ENV_KEY"])][0], disable_env_checker=False)
 
     inputs: dict = {
         "input_dims": env.observation_space.shape,
