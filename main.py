@@ -146,7 +146,7 @@ algo: List[str] = ["SAC"]
 # critic loss functions: ["MSE", "HUB", "MAE", "HSC", "CAU", "TCAU", "CIM", "MSE2", "MSE4", "MSE6"]
 critic: List[str] = ["MSE"]
 
-# bootstrapping of target critic values and discounted rewards: [integer > 0]
+# bootstrapping of target critic values and discounted rewards: [integer >0]
 multi_steps: List[int] = [1]
 
 # fmt: off
@@ -164,7 +164,7 @@ inputs: dict = {
 
         # multiplicative environment execution parameters
             "n_trials_mul": 10,                 # ibid.
-            "n_cumsteps_mul": 3e4,              # ibid.
+            "n_cumsteps_mul": 5e4,              # ibid.
             "eval_freq_mul": 1e3,               # ibid.
             "n_eval_mul": 1e2,                  # ibid.
             "max_eval_steps_mul": 1e2,          # maximum steps per evaluation episode

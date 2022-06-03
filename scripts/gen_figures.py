@@ -91,7 +91,7 @@ gbm_keys: List[int] = [20, 21, 22]
 
 mul_inputs_td3: dict = {
     "n_trials": 10,
-    "n_cumsteps": 3e4,  # 30,000 training steps
+    "n_cumsteps": 5e4,  # 50,000 training steps
     "eval_freq": 1e3,
     "n_eval": 1e2,
     "buffer": 1e6,
@@ -114,7 +114,7 @@ dice_sh_keys: List[int] = [17, 23]
 
 spitz_inputs_td3: dict = {
     "n_trials": 10,
-    "n_cumsteps": 3e4,  # 30,000 training steps
+    "n_cumsteps": 5e4,  # 50,000 training steps
     "eval_freq": 1e3,
     "n_eval": 1e2,
     "buffer": 1e6,
@@ -135,7 +135,7 @@ dice_sh_c_keys: List[int] = [19, 26]
 
 ins_inputs_td3: dict = {
     "n_trials": 10,
-    "n_cumsteps": 3e4,  # 30,000 training steps
+    "n_cumsteps": 5e4,  # 50,000 training steps
     "eval_freq": 1e3,
     "n_eval": 1e2,
     "buffer": 1e6,
@@ -159,7 +159,7 @@ action_days: int = 1
 
 # market environment keys (non-unique)
 mkt_name: List[str] = ["snp", "usei", "minor", "medium", "major", "dji", "full"]
-mkt_invA_env: List[int] = [27, 30, 33, 36, 39, 42, 45]
+mkt_invA_env: List[int] = [27, 30, 33, 36, 39]
 mkt_invB_env: List[int] = [28, 31, 34, 37, 40, 43, 46]
 mkt_invC_env: List[int] = [29, 32, 35, 38, 41, 44, 47]
 
@@ -188,7 +188,7 @@ mkt_inputs_sac["s_dist"] = "N"
 PLOT_ADDITIVE = 0
 PLOT_MULTIPLICATIVE = 0
 PLOT_MULTIPLICATIVE_SH = 0
-PLOT_MARKET = 0
+PLOT_MARKET = 1
 PLOT_GUIDANCE = 0
 
 if __name__ == "__main__":
@@ -433,14 +433,14 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[2],
             )
 
-            g_min = [-5, -20, -50] if mul_inputs == mul_inputs_td3 else [-5, -8, -30]
-            g_max = [2, 5, 10] if mul_inputs == mul_inputs_td3 else [None, None, None]
+            g_min = [-5, -20, -40] if mul_inputs == mul_inputs_td3 else [-5, -8, -25]
+            g_max = [1, 5, 10] if mul_inputs == mul_inputs_td3 else [1, 3, None]
             l_min = (
-                [-0.5, -0.5, -0.5]
+                [-1.5, -0.5, -0.5]
                 if mul_inputs == mul_inputs_td3
-                else [None, None, None]
+                else [None, -0.4, None]
             )
-            l_max = [2, 1, 1.5] if mul_inputs == mul_inputs_td3 else [None, None, None]
+            l_max = [2, 1, 1.5] if mul_inputs == mul_inputs_td3 else [1.5, None, None]
 
             plots.plot_inv_all_n_perf(
                 mul_inputs,
@@ -583,14 +583,12 @@ if __name__ == "__main__":
                 path + path_env + algo + n_str[2],
             )
 
-            g_min = [-5, -10, -20] if mul_inputs == mul_inputs_td3 else [-3, -3, -15]
-            g_max = (
-                [None, 2.5, 5] if mul_inputs == mul_inputs_td3 else [None, None, None]
-            )
+            g_min = [-3, -6, -25] if mul_inputs == mul_inputs_td3 else [-2, -4, -20]
+            g_max = [2, 2, 1] if mul_inputs == mul_inputs_td3 else [1.5, None, None]
             l_min = (
-                [-1, -0.5, -0.5] if mul_inputs == mul_inputs_td3 else [None, None, None]
+                [-1.5, -0.5, -0.5] if mul_inputs == mul_inputs_td3 else [-1, None, None]
             )
-            l_max = [1.5, 1, 1] if mul_inputs == mul_inputs_td3 else [None, None, None]
+            l_max = [1.5, 1, 1] if mul_inputs == mul_inputs_td3 else [1.5, None, None]
 
             plots.plot_inv_all_n_perf(
                 mul_inputs,
@@ -887,8 +885,8 @@ if __name__ == "__main__":
             levsh_sh2,
         ) = aggregate_data.mul_inv_n_summary(spitz_inputs_td3, dice_sh_a2)
 
-        g_min, g_max = [-5, -2], [4, 4]
-        l_min, l_max = [None, -0.25], [12 / 11, 12 / 11]
+        g_min, g_max = [-3, -3], [3, 3]
+        l_min, l_max = [-0.25, -0.25], [12 / 11, 12 / 11]
 
         plots.plot_sh_perf(
             spitz_inputs_sac,
@@ -1031,9 +1029,11 @@ if __name__ == "__main__":
                 inv="c",
             )
 
-            g_min = [-5, -5, -5] if ins_inputs == ins_inputs_td3 else [-5, -8, -5]
+            g_min = [-5, -5, -3] if ins_inputs == ins_inputs_td3 else [-4, -5, -3]
             g_max = [3, 2, 1] if ins_inputs == ins_inputs_td3 else [2.5, 1, 1]
-            l_min = [-1, -1, -1] if ins_inputs == ins_inputs_td3 else [None, None, None]
+            l_min = (
+                [-0.5, -1, -1] if ins_inputs == ins_inputs_td3 else [None, None, None]
+            )
             l_max = [2, 2, 2] if ins_inputs == ins_inputs_td3 else [None, None, None]
 
             plots.plot_inv_sh_perf(
@@ -1144,11 +1144,11 @@ if __name__ == "__main__":
             e = 0
             for env in invs:
 
-                equity_inv_a1 = utils.mkt_obs_aggregate(
+                equity_inv_a1 = aggregate_data.mkt_obs_aggregate(
                     env, obs_days, action_days, gym_envs, mkt_inputs_sac
                 )
 
-                equity_inv_a2 = utils.mkt_obs_aggregate(
+                equity_inv_a2 = aggregate_data.mkt_obs_aggregate(
                     env, obs_days, action_days, gym_envs, mkt_inputs_td3
                 )
 
