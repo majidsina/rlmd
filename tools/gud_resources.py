@@ -70,10 +70,10 @@ def guidance_dones(
 
     learn_done = done and not (done_threshold or done_time_initial)
 
-    # temporary: all dones are logged for diagnostic purposes
     return [
         done,
         learn_done,
+        # temporary: all dones are logged for diagnostic purposes
         done_threshold,
         done_time_initial,
         done_dist,
@@ -487,9 +487,9 @@ def create_3d_grid(
 
 def create_two_stage(
     length: int,
-    height: int,
-    midpoint: int,
-    cone_max: int,
+    height: float,
+    midpoint: float,
+    cone_max: float,
     velocity_1: float,
     velocity_2: float,
     n_targets: int,
