@@ -57,8 +57,8 @@ def coin_flip_tests(
     DOWN_R: float,
     ASYM_LIM: float,
     VRAM: bool,
-    path_results: str,
-    path_figs: str,
+    path_results: Union[str, bytes, PathLike],
+    path_figs: Union[str, bytes, PathLike],
     l0_l: float,
     l0_h: float,
     l0_i: float,
@@ -188,8 +188,8 @@ def dice_roll_tests(
     MID_R: float,
     ASYM_LIM: float,
     VRAM: bool,
-    path_results: str,
-    path_figs: str,
+    path_results: Union[str, bytes, PathLike],
+    path_figs: Union[str, bytes, PathLike],
     l0_l: float,
     l0_h: float,
     l0_i: float,
@@ -298,8 +298,8 @@ def dice_roll_sh_tests(
     SH_DOWN_R: float,
     SH_MID_R: float,
     VRAM: bool,
-    path_results: str,
-    path_figs: str,
+    path_results: Union[str, bytes, PathLike],
+    path_figs: Union[str, bytes, PathLike],
     l0_l: float,
     l0_h: float,
     l0_i: float,
@@ -374,8 +374,8 @@ def gbm_tests(
     vol: List[float],
     name: List[str],
     VRAM: bool,
-    path_results: str,
-    path_figs: str,
+    path_results: Union[str, bytes, PathLike],
+    path_figs: Union[str, bytes, PathLike],
     l0_l: List[float],
     l0_h: List[float],
     l0_i: List[float],
@@ -387,7 +387,7 @@ def gbm_tests(
     Conduct tests on GBM optimal leverage experiment.
 
     Parameters:
-        Refer to `./lev/dice_roll.py` for input details.
+        Refer to `./lev/gbm.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
     assert INVESTORS > 0
@@ -433,6 +433,8 @@ def gbm_tests(
         == len(l1_h)
     ), "all input lists must be of equal length"
 
+    assert len(drift) > 0, "must contain at least one environment"
+
     for x in range(len(drift)):
         assert isinstance(drift[x], (float, int)), tfi
         assert isinstance(vol[x], (float, int)), tfi
@@ -470,8 +472,8 @@ def levarge_tests(
     VALUE_0: float,
     ASYM_LIM: float,
     VRAM: bool,
-    path_results: str,
-    path_figs: str,
+    path_results: Union[str, bytes, PathLike],
+    path_figs: Union[str, bytes, PathLike],
     COIN_UP_PROB: float,
     COIN_UP_R: float,
     COIN_DOWN_R: float,
