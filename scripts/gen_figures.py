@@ -188,7 +188,7 @@ mkt_inputs_sac["s_dist"] = "N"
 PLOT_ADDITIVE = 0
 PLOT_MULTIPLICATIVE = 0
 PLOT_MULTIPLICATIVE_SH = 0
-PLOT_MARKET = 1
+PLOT_MARKET = 0
 PLOT_GUIDANCE = 0
 
 if __name__ == "__main__":
