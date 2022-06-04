@@ -44,6 +44,7 @@ from tools.utils import (
 # integer selection using False == 0 and True == 1
 
 # environments
+TEST_BOX2D = 1
 TEST_PYBULLET = 1
 TEST_MULTI = 1
 TEST_MULTI_SH = 1
@@ -185,6 +186,7 @@ if __name__ == "__main__":
 
     # CONDUCT TESTS
     agent_tests(
+        TEST_BOX2D,
         TEST_PYBULLET,
         TEST_MULTI,
         TEST_MULTI_SH,
@@ -198,6 +200,8 @@ if __name__ == "__main__":
 
     envs = []
     # arbitrarily selected environments to be tested
+    if TEST_BOX2D:
+        envs += [0, 2]
     if TEST_PYBULLET:
         envs += [4, 7]
     if TEST_MULTI:

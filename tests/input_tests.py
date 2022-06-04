@@ -1111,9 +1111,17 @@ def env_tests(gym_envs: Dict[str, list], inputs: dict) -> None:
             )
 
             if key < 3:
-                assert all(
-                    mstep == 1 for mstep in inputs["bootstraps"]
-                ), "multi-steps is not stable for any (additive) OpenAI Box2D continuous control tasks"
+                # prevent multi-steps for OpenAI Box2D environments
+                # assert all(
+                # mstep == 1 for mstep in inputs["bootstraps"]
+                # ), "multi-steps are not stable for any (additive) OpenAI Box2D continuous control tasks"
+
+                # tentatively allow multi-steps for OpenAI Box2D environments
+                print(
+                    "environmnet {}: multi-steps may not be stable for (additive) OpenAI Box2D continuous control tasks".format(
+                        key
+                    )
+                )
 
         elif key < market_key:
             assert int(gym_envs[str(key)][3]) >= 0, gte0
@@ -1804,6 +1812,7 @@ def countermeasure_env_tests(
 
 
 def agent_tests(
+    TEST_BOX2D: int,
     TEST_PYBULLET: int,
     TEST_MULTI: int,
     TEST_MULTI_SH: int,
@@ -1820,6 +1829,8 @@ def agent_tests(
     Parameters:
         Refer to `./tools/agent_tests.py` for input details.
     """
+    assert isinstance(TEST_BOX2D, int), ti
+    assert TEST_BOX2D == 0 or TEST_BOX2D == 1, "must be 0 or 1"
     assert isinstance(TEST_PYBULLET, int), ti
     assert TEST_PYBULLET == 0 or TEST_PYBULLET == 1, "must be 0 or 1"
     assert isinstance(TEST_MULTI, int), ti
