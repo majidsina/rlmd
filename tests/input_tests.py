@@ -1021,20 +1021,30 @@ def learning_tests(inputs: dict) -> None:
 
     # shared algorithm training parameter tests
     assert isinstance(inputs["sample_dist"], dict), td
-    assert isinstance(inputs["sample_dist"]["SAC"], str), ts
+    assert set(inputs["sample_dist"].keys()).issubset(
+        set(["SAC", "TD3"])
+    ), "must contain the two main algorithms"
     assert (
-        inputs["sample_dist"]["SAC"] == "N" or "L" or "MVN"
+        inputs["sample_dist"]["SAC"] == "N"
+        or inputs["sample_dist"]["SAC"] == "L"
+        or inputs["sample_dist"]["SAC"] == "MVN"
     ), "SAC sample_dist must be either 'N' (normal = Gaussian) or 'L' (2x exponential = Laplace), or 'MVN' (multi-variate normal)"
     assert isinstance(inputs["sample_dist"]["TD3"], str), ts
     assert (
-        inputs["sample_dist"]["TD3"] == "N" or "L"
+        inputs["sample_dist"]["TD3"] == "N" or inputs["sample_dist"]["TD3"] == "L"
     ), "TD3 sample_dist must be either 'N' (normal = Gaussian) or 'L' (2x exponential = Laplace)"
     assert isinstance(inputs["batch_size"], dict), td
+    assert set(inputs["batch_size"].keys()).issubset(
+        set(["SAC", "TD3"])
+    ), "must contain the two main algorithms"
     assert isinstance(inputs["batch_size"]["TD3"], (float, int)), tfi
     assert int(inputs["batch_size"]["TD3"]) >= 1, gte1
     assert isinstance(inputs["batch_size"]["SAC"], (float, int)), tfi
     assert int(inputs["batch_size"]["SAC"]) >= 1, gte1
     assert isinstance(inputs["grad_step"], dict), td
+    assert set(inputs["grad_step"].keys()).issubset(
+        set(["SAC", "TD3"])
+    ), "must contain the two main algorithms"
     assert isinstance(inputs["grad_step"]["TD3"], (float, int)), tfi
     assert int(inputs["grad_step"]["TD3"]) >= 1, gte1
     assert isinstance(inputs["grad_step"]["SAC"], (float, int)), tfi
@@ -2108,6 +2118,12 @@ def figure_tests(
     ]
 
     for params in inputs:
+        if params != add_inputs:
+            assert isinstance(params["algo"], str), ts
+            assert (
+                params["algo"] == "SAC" or params["algo"] == "TD3"
+            ), "algorithm must be either 'SAC' or 'TD3'"
+
         assert isinstance(params["n_trials"], (float, int)), tfi
         assert int(params["n_trials"]) >= 1, gte1
         assert isinstance(params["n_cumsteps"], (float, int)), tfi
@@ -2133,8 +2149,10 @@ def figure_tests(
         assert (
             params["critic_mean_type"] == "E"
         ), "critic_mean_type must be 'E' ('S' not currently possible)"
-        assert params["s_dist"] == ("N" or "L") or (
-            params["algo_name"][0] == "SAC" and params["s_dist"] == "MVN"
+        assert (
+            params["s_dist"] == "N"
+            or params["s_dist"] == "L"
+            or (params["algo"] == "SAC" and params["s_dist"] == "MVN")
         ), "s_dist must be either 'N' (normal=Gaussian), 'L' (2x exponential=Laplace) and for SAC only 'MVN' (multi-variate normal)"
 
     assert spitz_inputs_td3["n_trials"] == spitz_inputs_sac["n_trials"]
