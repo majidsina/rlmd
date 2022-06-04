@@ -44,7 +44,6 @@ from tools.utils import (
 # integer selection using False == 0 and True == 1
 
 # environments
-TEST_BOX2D = 1
 TEST_PYBULLET = 1
 TEST_MULTI = 1
 TEST_MULTI_SH = 1
@@ -186,7 +185,6 @@ if __name__ == "__main__":
 
     # CONDUCT TESTS
     agent_tests(
-        TEST_BOX2D,
         TEST_PYBULLET,
         TEST_MULTI,
         TEST_MULTI_SH,
@@ -200,16 +198,14 @@ if __name__ == "__main__":
 
     envs = []
     # arbitrarily selected environments to be tested
-    if TEST_BOX2D:
-        envs += [0, 2]
     if TEST_PYBULLET:
-        envs += [4, 7]
+        envs += [1, 4]
     if TEST_MULTI:
-        envs += [14, 19, 21]
+        envs += [8, 13, 15]
     if TEST_MULTI_SH:
-        envs += [23, 25]
+        envs += [17, 19]
     if TEST_MARKET:
-        envs += [27, 37, 47]
+        envs += [21, 31, 41]
 
     algo = []
     if TEST_SAC:
@@ -225,7 +221,7 @@ if __name__ == "__main__":
 
     multi_steps = [1]
     if TEST_MULTI_STEPS:
-        multi_steps += [3, 7]
+        multi_steps += [5]
 
     # clean-up test files from earlier uncompleted tests
     if os.path.exists("./results/additive-test/"):

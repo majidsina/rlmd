@@ -41,104 +41,93 @@ gym_envs: Dict[str, list] = {
     # ENV_KEY: [env_id, state_dim, action_dim, initial warm-up steps to generate random seed]
 
     # ADDITIVE ENVIRONMENTS
-        # OpenAI Box2D continuous control tasks
-            "0": ["LunarLanderContinuous", 8, 2, 1e3],
-            "1": ["BipedalWalker", 24, 4, 1e3],
-            "2": ["BipedalWalkerHardcore", 24, 4, 1e3],
         # Roboschool environments ported to PyBullet
-            "3": ["CartPoleContinuousBulletEnv-v0", 4, 1, 1e3],
-            "4": ["InvertedPendulumBulletEnv-v0", 5, 1, 1e3],
-            "5": ["InvertedDoublePendulumBulletEnv-v0", 9, 1, 1e3],
-            "6": ["HopperBulletEnv-v0", 15, 3, 1e3],
-            "7": ["Walker2DBulletEnv-v0", 22, 6, 1e3],
-            "8": ["HalfCheetahBulletEnv-v0", 26, 6, 1e4],
-            "9": ["AntBulletEnv-v0", 28, 8, 1e4],
-            "10": ["HumanoidBulletEnv-v0", 44, 17, 1e4],
-        # KOD*LAB quadruped direct-drive legged robots ported to PyBullet
-            "11": ["MinitaurBulletEnv-v0", 28, 8, 1e4],
-        # DeepMimic simulation of a imitating Humanoid mimic ported to PyBullet
-            "12": ["HumanoidDeepMimicWalkBulletEnv-v1", 197, 36, 1e4],
-            "13": ["HumanoidDeepMimicBackflipBulletEnv-v1", 197, 36, 1e4],
+            "0": ["CartPoleContinuousBulletEnv-v0", 4, 1, 1e3],
+            "1": ["InvertedPendulumBulletEnv-v0", 5, 1, 1e3],
+            "2": ["InvertedDoublePendulumBulletEnv-v0", 9, 1, 1e3],
+            "3": ["HopperBulletEnv-v0", 15, 3, 1e3],
+            "4": ["Walker2DBulletEnv-v0", 22, 6, 1e3],
+            "5": ["HalfCheetahBulletEnv-v0", 26, 6, 1e3],
+            "6": ["AntBulletEnv-v0", 28, 8, 1e3],
+            "7": ["HumanoidBulletEnv-v0", 44, 17, 1e3],
 
     # MULTIPLICATVE ENVIRONMENTS (MARKOV)
         # InvA = Investor A,  InvB = Investor B,  InvC = Investor C
         # assets following the binary coin flip
-            "14": ["Coin_InvA", 5, 1, 1e3],
-            "15": ["Coin_InvB", 5, 2, 1e3],
-            "16": ["Coin_InvC", 5, 3, 1e3],
+            "8": ["Coin_InvA", 5, 1, 1e3],
+            "9": ["Coin_InvB", 5, 2, 1e3],
+            "10": ["Coin_InvC", 5, 3, 1e3],
         # assets following the trinary dice roll
-            "17": ["Dice_InvA", 5, 1, 1e3],
-            "18": ["Dice_InvB", 5, 2, 1e3],
-            "19": ["Dice_InvC", 5, 3, 1e3],
+            "11": ["Dice_InvA", 5, 1, 1e3],
+            "12": ["Dice_InvB", 5, 2, 1e3],
+            "13": ["Dice_InvC", 5, 3, 1e3],
         # assets following GBM
-            "20": ["GBM_InvA", 5, 1, 1e3],
-            "21": ["GBM_InvB", 5, 2, 1e3],
-            "22": ["GBM_InvC", 5, 3, 1e3],
+            "14": ["GBM_InvA", 5, 1, 1e3],
+            "15": ["GBM_InvB", 5, 2, 1e3],
+            "16": ["GBM_InvC", 5, 3, 1e3],
 
     # MULTIPLICATVE INSURANCE SAFE HAVEN ENVIRONMENTS (MARKOV)
         # single asset cost-effective risk mitigation with insurance
-            "23": ["Dice_SH_INSURED", 6, 1, 1e3],
-        # InvA = Investor A,  InvB = Investor B,  InvC = Investor C
+            "17": ["Dice_SH_INSURED", 6, 1, 1e3],
         # single asset following the dice roll with insurance safe havens
-            "24": ["Dice_SH_InvA", 6, 2, 1e3],
-            "25": ["Dice_SH_InvB", 6, 3, 1e3],
-            "26": ["Dice_SH_InvC", 6, 4, 1e3],
+            "18": ["Dice_SH_InvA", 6, 2, 1e3],
+            "19": ["Dice_SH_InvB", 6, 3, 1e3],
+            "20": ["Dice_SH_InvC", 6, 4, 1e3],
 
     # MARKET ENVIRONMENTS (NON-MARKOV)
-        # InvA = Investor A,  InvB = Investor B,  InvC = Investor C
         # SNP: S&P500 index (^SPX)
-            "27": ["SNP_InvA", 5, 1, 1e3],
-            "28": ["SNP_InvB", 5, 2, 1e3],
-            "29": ["SNP_InvC", 5, 3, 1e3],
+            "21": ["SNP_InvA", 5, 1, 1e3],
+            "22": ["SNP_InvB", 5, 2, 1e3],
+            "23": ["SNP_InvC", 5, 3, 1e3],
         # USEI: US-listed equity indicies (^SPX, ^NDX, ^DJIA)
-            "30": ["EI_InvA", 7, 3, 1e3],
-            "31": ["EI_InvB", 7, 4, 1e3],
-            "32": ["EI_InvC", 7, 5, 1e3],
+            "24": ["EI_InvA", 7, 3, 1e3],
+            "25": ["EI_InvB", 7, 4, 1e3],
+            "26": ["EI_InvC", 7, 5, 1e3],
         # Minor: USEI + Gold, Silver, WTI
-            "33": ["Minor_InvA", 10, 6, 1e3],
-            "34": ["Minor_InvB", 10, 7, 1e3],
-            "35": ["Minor_InvC", 10, 8, 1e3],
+            "27": ["Minor_InvA", 10, 6, 1e3],
+            "28": ["Minor_InvB", 10, 7, 1e3],
+            "29": ["Minor_InvC", 10, 8, 1e3],
         # Medium: Minor + Cooper, Platinum, Lumber
-            "36": ["Medium_InvA", 13, 9, 1e3],
-            "37": ["Medium_InvB", 13, 10, 1e3],
-            "38": ["Medium_InvC", 13, 11, 1e3],
+            "30": ["Medium_InvA", 13, 9, 1e3],
+            "31": ["Medium_InvB", 13, 10, 1e3],
+            "32": ["Medium_InvC", 13, 11, 1e3],
         # Major: Medium + Palladium, RBOB, Cattle, Coffee, OJ
-            "39": ["Major_InvA", 18, 14, 1e3],
-            "40": ["Major_InvB", 18, 15, 1e3],
-            "41": ["Major_InvC", 18, 16, 1e3],
+            "33": ["Major_InvA", 18, 14, 1e3],
+            "34": ["Major_InvB", 18, 15, 1e3],
+            "35": ["Major_InvC", 18, 16, 1e3],
         # DJI: USEI + 25/30 Dow Jones (^DJIA) components
-            "42": ["DJI_InvA", 33, 29, 1e3],
-            "43": ["DJI_InvB", 33, 30, 1e3],
-            "44": ["DJI_InvC", 33, 31, 1e3],
+            "36": ["DJI_InvA", 33, 29, 1e3],
+            "37": ["DJI_InvB", 33, 30, 1e3],
+            "38": ["DJI_InvC", 33, 31, 1e3],
         # Full: Major + 26/30 Dow Jones (^DJIA) components
-            "45": ["Full_InvA", 44, 40, 1e3],
-            "46": ["Full_InvB", 44, 41, 1e3],
-            "47": ["Full_InvC", 44, 42, 1e3],
+            "39": ["Full_InvA", 44, 40, 1e3],
+            "40": ["Full_InvB", 44, 41, 1e3],
+            "41": ["Full_InvC", 44, 42, 1e3],
 
     # GUIDANCE ENVIRONMENTS (NON-MARKOV) ... ARE NOT PUBLIC!
         # NW = no wind,  CW = constant wind,  VW = variable wind
         # point projectile targeting (2D)
-            "48": ["Laminar_2D_NW", 10, 1, 1e0],
-            "49": ["Laminar_2D_CW", 13, 1, 1e3],
-            "50": ["Laminar_2D_VW", 13, 1, 1e3],
+            "42": ["Laminar_2D_NW", 10, 1, 1e0],
+            "43": ["Laminar_2D_CW", 13, 1, 1e3],
+            "44": ["Laminar_2D_VW", 13, 1, 1e3],
         # point projectile targeting (3D)
-            "51": ["Laminar_3D_NW", 14, 2, 1e3],
-            "52": ["Laminar_3D_CW", 17, 2, 1e3],
-            "53": ["Laminar_3D_VW", 17, 2, 1e3],
+            "45": ["Laminar_3D_NW", 14, 2, 1e3],
+            "46": ["Laminar_3D_CW", 17, 2, 1e3],
+            "47": ["Laminar_3D_VW", 17, 2, 1e3],
         # two-stage targeting and delivery of payloads
-            "54": ["2Stage_NW", 59, 8, 1e3],
-            "55": ["2Stage_CW", 62, 8, 1e3],
-            "56": ["2Stage_VW", 62, 8, 1e3],
+            "48": ["2Stage_NW", 59, 8, 1e3],
+            "49": ["2Stage_CW", 62, 8, 1e3],
+            "50": ["2Stage_VW", 62, 8, 1e3],
         # countermeasures for delivery of payloads
-            "57": ["Counter_NW", 75, 8, 1e3],
-            "58": ["Counter_CW", 78, 8, 1e3],
-            "59": ["Counter_VW", 78, 8, 1e3],
+            "51": ["Counter_NW", 75, 8, 1e3],
+            "52": ["Counter_CW", 78, 8, 1e3],
+            "53": ["Counter_VW", 78, 8, 1e3],
     }
 
 # fmt: on
 
 # environments to train agent: [integer ENV_KEY] from gym_envs dict
-envs: List[int] = [27]
+envs: List[int] = [21]
 
 # model-free off-policy (continous action space) agents: ["SAC", "TD3"]
 algo: List[str] = ["SAC"]

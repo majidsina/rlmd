@@ -48,7 +48,7 @@ from tests.input_tests import figure_tests
 
 # must select exactly four environments and two algorithms (can repeat selection)
 # environment ENV_KEYS from main.gym_envs dictionary
-add_envs: List[int] = [6, 7, 8, 10]
+add_envs: List[int] = [3, 4, 5, 7]
 # title of plotted environment results
 add_name: List[str] = ["Hopper", "Walker", "Cheetah", "Humanoid"]
 add_algos: List[str] = ["SAC", "TD3"]
@@ -83,11 +83,11 @@ n_gambles: List[int] = [1, 3, 5]
 
 # must select exactly three (non-unique) environments for each list
 # assets following the coin flip
-coin_keys: List[int] = [14, 15, 16]
+coin_keys: List[int] = [8, 9, 10]
 # assets following the dice roll
-dice_keys: List[int] = [17, 18, 19]
+dice_keys: List[int] = [11, 12, 13]
 # assets following GBM
-gbm_keys: List[int] = [20, 21, 22]
+gbm_keys: List[int] = [14, 15, 16]
 
 mul_inputs_td3: dict = {
     "n_trials": 10,
@@ -110,7 +110,7 @@ mul_inputs_sac["s_dist"] = "N"
 
 # must select exactly two (non-unique) environments for each list
 # single asset following the dice roll with safe haven
-dice_sh_keys: List[int] = [17, 23]
+dice_sh_keys: List[int] = [11, 17]
 
 spitz_inputs_td3: dict = {
     "n_trials": 10,
@@ -129,9 +129,9 @@ spitz_inputs_sac = spitz_inputs_td3.copy()
 spitz_inputs_sac["algo"] = "SAC"
 spitz_inputs_sac["s_dist"] = "N"
 
-dice_sh_a_keys: List[int] = [17, 24]
-dice_sh_b_keys: List[int] = [18, 25]
-dice_sh_c_keys: List[int] = [19, 26]
+dice_sh_a_keys: List[int] = [11, 18]
+dice_sh_b_keys: List[int] = [12, 19]
+dice_sh_c_keys: List[int] = [13, 20]
 
 ins_inputs_td3: dict = {
     "n_trials": 10,
@@ -159,9 +159,9 @@ action_days: int = 1
 
 # market environment keys (non-unique)
 mkt_name: List[str] = ["snp", "usei", "minor", "medium", "major", "dji", "full"]
-mkt_invA_env: List[int] = [27, 30, 33, 36, 39]
-mkt_invB_env: List[int] = [28, 31, 34, 37, 40, 43, 46]
-mkt_invC_env: List[int] = [29, 32, 35, 38, 41, 44, 47]
+mkt_invA_env: List[int] = [21, 24, 27, 30, 33, 36, 39]
+mkt_invB_env: List[int] = [22, 25, 28, 31, 34, 37, 40]
+mkt_invC_env: List[int] = [23, 26, 29, 32, 35, 38, 41]
 
 # only obtain results for investor A
 only_invA = True

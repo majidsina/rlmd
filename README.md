@@ -92,11 +92,9 @@ python scripts/gen_figures.py
 ```
 
 There are also additional prerequisites for installing certain packages (without mentioning dependencies):
-* `box2d-py`: Required only for training on [Box2D]( https://gym.openai.com/envs/#box2d) continuous control tasks.
-* `box2d-py` and `pybullet`: A C++ compiler such as [GCC](https://gcc.gnu.org/) is necessary. On Windows, install [Microsoft Visual Studio Community](https://visualstudio.microsoft.com/) and in the installer select the “Desktop development with C++” workload with both optional features “MSVC v143 - VS 2022 C++ x64/x86 build tools” and the “Windows 10 SDK”.
 * `gym`: The interface compiler [SWIG](http://www.swig.org/) must be [installed](http://www.swig.org/Doc4.0/SWIGDocumentation.pdf) to connect C/C++ programs with scripting languages. For Linux either build from the distributed tarball or directly fetch the package from a repository. On Windows, extract the swigwin zip file and add its directory to the system PATH environment variable.
-* `mpi4py`: A Message Passing Interface (MPI) library for Linux or [Microsoft MPI](https://www.microsoft.com/en-us/download/details.aspx?id=57467) is only required for training on the [DeepMimic](https://arxiv.org/pdf/1804.02717.pdf) environments ported to [PyBullet](https://pybullet.org)
 * `pandas-datareader`: Required only when updating existing or creating new market environments by directly obtaining historical financial market data (prices and volumes).
+* `pybullet`: A C/C++ compiler such as [GCC](https://gcc.gnu.org/) is necessary for [PyBullet](https://pybullet.org). On Windows, install [Microsoft Visual Studio Community](https://visualstudio.microsoft.com/) and in the installer select the “Desktop development with C++” workload with both optional features “MSVC v143 - VS 2022 C++ x64/x86 build tools” and the “Windows 10 SDK”.
 * `torch`: Only the exact version with a compatible compute platforms should be used following the official [instructions](https://pytorch.org/get-started/locally/). Different versions can significantly reduce speed and lead to broken function/method calls.
 
 ## Tests
