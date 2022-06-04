@@ -49,8 +49,7 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
     n_gambles_str = "_n" + str(n_gambles)
     inputs = {"env_id": gym_envs[str(inputs["ENV_KEY"])][0] + n_gambles_str, **inputs}
 
-    env_splits = utils.env_dynamics(gym_envs)
-    multi_key, sh_key = env_splits[0], env_splits[1]
+    multi_key, sh_key, _, _, _, _, _ = utils.env_dynamics(gym_envs)
 
     if inputs["ENV_KEY"] <= multi_key + 2:
         env_gym = str(

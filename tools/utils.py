@@ -105,7 +105,9 @@ def input_initialisation(
     return new_inputs
 
 
-def env_dynamics(gym_envs: Dict[str, list]) -> list:
+def env_dynamics(
+    gym_envs: Dict[str, list]
+) -> Tuple[int, int, int, List[int], int, int, int]:
     """
     Obtain environment key limits based on reward dynamics.
 
@@ -113,13 +115,13 @@ def env_dynamics(gym_envs: Dict[str, list]) -> list:
         gym_envs: all environment details
 
     Returns:
-        multi_key: first multiplicative env key
-        sh_key: first multiplicative safe haven env key
-        market_key: first market env key
-        market_env_keys: final keys of each market envS
-        gud_key: first guidance env key
-        two_key: first two-stage key
-        counter_key: first countermeasure key
+        multi_key: first multiplicative environment key
+        sh_key: first multiplicative safe haven environment key
+        market_key: first market environment key
+        market_env_keys: final keys of each market environments
+        gud_key: first guidance environment key
+        two_key: first two-stage environment key
+        counter_key: first countermeasure environment key
     """
     multi_key = [int(k) for k, v in gym_envs.items() if v[0] == "Coin_InvA"][0]
     sh_key = [int(k) for k, v in gym_envs.items() if v[0] == "Dice_SH_INSURED"][0]
@@ -131,17 +133,7 @@ def env_dynamics(gym_envs: Dict[str, list]) -> list:
     market_env_keys = [int(k) for k, v in gym_envs.items() if v[0][-5:] == "_InvC"]
     market_env_keys = [k for k in market_env_keys if k >= market_key]
 
-    seperator = [
-        multi_key,
-        sh_key,
-        market_key,
-        market_env_keys,
-        gud_key,
-        two_key,
-        counter_key,
-    ]
-
-    return seperator
+    return multi_key, sh_key, market_key, market_env_keys, gud_key, two_key, counter_key
 
 
 def load_market_data(

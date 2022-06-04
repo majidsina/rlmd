@@ -1080,13 +1080,7 @@ def env_tests(gym_envs: Dict[str, list], inputs: dict) -> None:
     assert inputs["ENV_KEY"] == None
 
     # obtain environment key limits based on reward dynamics
-    env_splits = env_dynamics(gym_envs)
-    multi_key, market_key, market_env_keys, gud_key = (
-        env_splits[0],
-        env_splits[2],
-        env_splits[3],
-        env_splits[4],
-    )
+    multi_key, _, market_key, market_env_keys, gud_key, _, _ = env_dynamics(gym_envs)
 
     for key in inputs["envs"]:
 
@@ -1910,12 +1904,7 @@ def figure_tests(
         market_data_path[0:2] == "./" and market_data_path[-1] == "/"
     ), "market_data_path file path must be in a sub-directory relative to main.py"
 
-    env_splits = env_dynamics(gym_envs)
-    multi_key, sh_key, market_key, = (
-        env_splits[0],
-        env_splits[1],
-        env_splits[2],
-    )
+    multi_key, sh_key, market_key, _, _, _, _ = env_dynamics(gym_envs)
 
     assert isinstance(add_envs, list), tl
     assert (

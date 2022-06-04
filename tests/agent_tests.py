@@ -243,16 +243,15 @@ if __name__ == "__main__":
     from scripts.rl_market import market_env
     from scripts.rl_multiplicative import multiplicative_env
 
-    env_splits = env_dynamics(gym_envs)
-    multi_key, sh_key, market_key, market_env_keys, gud_key, two_key, counter_key = (
-        env_splits[0],
-        env_splits[1],
-        env_splits[2],
-        env_splits[3],
-        env_splits[4],
-        env_splits[5],
-        env_splits[6],
-    )
+    (
+        multi_key,
+        sh_key,
+        market_key,
+        market_env_keys,
+        gud_key,
+        two_key,
+        counter_key,
+    ) = env_dynamics(gym_envs)
 
     inputs["test_agent"] = True
 
