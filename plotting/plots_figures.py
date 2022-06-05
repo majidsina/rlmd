@@ -3400,7 +3400,7 @@ def plot_inv_sh_perf(
             #     x_steps, x_mad_lo, x_mad_up, facecolor=cols[i], alpha=0.1
             # )
             axs[1, n].grid(True, linewidth=0.2)
-            axs[1, n].xaxis.set_ticklabels([])
+            # axs[1, n].xaxis.set_ticklabels([])
 
             if i == ninv - 1:
                 if n == 0:
@@ -3453,9 +3453,11 @@ def plot_inv_sh_perf(
                 axs[1, n].set_ylim(l_min[n], l_max[n])
 
                 axs[1, n].grid(True, linewidth=0.2)
-                axs[1, n].xaxis.set_ticklabels([])
+                # axs[1, n].xaxis.set_ticklabels([])
 
     axs[1, 0].set_ylabel("Leverage")
+    axs[1, 1].xaxis.set_ticklabels([])
+    axs[1, 2].xaxis.set_ticklabels([])
 
     for n in range(1, 3, 1):
         for i in range(0, ninv, 1):
