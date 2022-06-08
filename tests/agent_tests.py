@@ -66,7 +66,7 @@ TEST_MULTI_STEPS = 1
 inputs = {
     # LEARNING PARAMETERS
         # additive environment execution parameters
-            "n_trials_add": 2,                 # number of training trials
+            "n_trials_add": 2,                  # number of training trials
             "n_cumsteps_add": 3e3,              # training steps per trial (must be greater than environment warm-up)
             "eval_freq_add": 1e3,               # interval (steps) between evaluation episodes
             "n_eval_add": 1e1,                  # number of evaluation episodes
@@ -75,7 +75,7 @@ inputs = {
             "critic_percentile_add": 100,       # top percentile of critic mini-batch to be minimised (>0, <=100)
 
         # multiplicative environment execution parameters
-            "n_trials_mul": 2,                 # ibid.
+            "n_trials_mul": 2,                  # ibid.
             "n_cumsteps_mul": 3e3,              # ibid.
             "eval_freq_mul": 1e3,               # ibid.
             "n_eval_mul": 1e1,                  # ibid.
@@ -91,7 +91,7 @@ inputs = {
             "market_dir":                       # directory containing historical market data
                 "./tools/market_data/",
 
-            "n_trials_mkt": 2,                 # ibid.
+            "n_trials_mkt": 2,                  # ibid.
             "n_cumsteps_mkt": 3e3,              # ibid.
             "eval_freq_mkt": 1e3,               # ibid.
             "n_eval_mkt": 1e1,                  # ibid.
@@ -111,7 +111,7 @@ inputs = {
                 [1, 5],
 
         # guidance environment execution parameters
-            "n_trials_gud": 10,                 # ibid.
+            "n_trials_gud": 2,                  # ibid.
             "n_cumsteps_gud": 3e4,              # ibid.
             "eval_freq_gud": 1e3,               # ibid.
             "n_eval_gud": 1e1,                  # ibid.
@@ -120,7 +120,7 @@ inputs = {
             "critic_percentile_gud": 50,        # ibid.
 
             "targets":                          # number of unique targets for two-stage and countermeasures
-                [1, 5],
+                [3, 5],
 
         # learning variables
             "gpu": "cuda:0",                    # CUDA-based GPU to be used by PyTorch or use CPU ("cpu")
