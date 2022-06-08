@@ -10,10 +10,9 @@ import style:           isort==5.10
 
 copyright (C):          https://www.gnu.org/licenses/agpl-3.0.en.html
 author:                 J. S. Grewal (2022)
-email:                   <rg (_] public [at} proton {dot) me>
+email:                  <rg (_] public [at} proton {dot) me>
 linkedin:               https://www.linkedin.com/in/rajagrewal
 website:                https://www.github.com/rajabinks
-copyright (C):          https://www.gnu.org/licenses/agpl-3.0.en.html
 
 Description:
     Responsible for performing agent evaluation episodes for both
