@@ -46,7 +46,7 @@ NDArrayFloat = npt.NDArray[np.float_]
 
 import plotting.plots_multiverse as plots
 from lev.lev_exp import gbm_fixed_final_lev, gbm_smart_lev
-from tests.input_tests import gbm_tests
+from tests.test_input_lev import gbm_tests
 
 # fmt: off
 

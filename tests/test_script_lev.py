@@ -1,6 +1,6 @@
 """
-title:                  lev_tests.py
-usage:                  python tests/lev_tests.py
+title:                  test_script_lev.py
+usage:                  python tests/test_script_lev.py
 python version:         3.10
 torch verison:          1.11
 
@@ -53,7 +53,7 @@ from lev.lev_exp import (
     gbm_fixed_final_lev,
     gbm_smart_lev,
 )
-from tests.input_tests import levarge_tests
+from tests.test_input_lev import levarge_tests
 
 # fmt: off
 

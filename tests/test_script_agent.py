@@ -1,6 +1,6 @@
 """
-title:                  agent_tests.py
-usage:                  python tests/agent_tests.py
+title:                  test_script_agent.py
+usage:                  python tests/test_script_agent.py
 python version:         3.10
 torch verison:          1.11
 gym version:            0.24
@@ -33,7 +33,12 @@ import shutil
 import time
 
 from main import gym_envs
-from tests.input_tests import agent_tests, algo_method_checks, env_tests, learning_tests
+from tests.test_input_agent import (
+    agent_tests,
+    algo_method_checks,
+    env_tests,
+    learning_tests,
+)
 from tools.utils import (
     device_details,
     env_dynamics,

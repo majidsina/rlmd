@@ -35,7 +35,7 @@ from gym import spaces
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-from tests.input_tests import gbm_env_tests, multi_env_tests
+from tests.test_input_envs import gbm_env_tests, multi_env_tests
 from tools.env_resources import multi_gbm_dones
 
 # fmt: off

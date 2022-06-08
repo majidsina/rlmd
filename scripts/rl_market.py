@@ -31,7 +31,7 @@ NDArrayFloat = npt.NDArray[np.float_]
 
 import envs.market_envs as market_envs
 import plotting.plots_summary as plots
-import tests.learning_tests as learning_tests
+import tests.test_live_learning as test_live_learning
 import tools.env_resources as env_resources
 import tools.eval_episodes as eval_episodes
 import tools.utils as utils
@@ -254,7 +254,7 @@ def market_env(
                             ):
                                 loss, logtemp, loss_params = agent.learn()
 
-                                learning_tests.critic_learning(
+                                test_live_learning.critic_learning(
                                     cum_steps,
                                     inputs["mini_batch_size"],
                                     episode,

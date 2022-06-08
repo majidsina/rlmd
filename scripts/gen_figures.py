@@ -43,7 +43,7 @@ import plotting.plots_figures as plots
 import tools.aggregate_data as aggregate_data
 import tools.utils as utils
 from main import gym_envs
-from tests.input_tests import figure_tests
+from tests.test_input_extra import figure_tests
 
 # ADDITIVE ENVIRONMENTS
 

@@ -30,7 +30,7 @@ from gym import spaces
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-from tests.input_tests import market_env_tests
+from tests.test_input_envs import market_env_tests
 from tools.env_resources import market_dones
 
 # fmt: off

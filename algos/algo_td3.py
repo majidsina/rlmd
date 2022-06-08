@@ -30,7 +30,7 @@ from torch.distributions.laplace import Laplace
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-import tests.learning_tests as learning_tests
+import tests.test_live_learning as test_live_learning
 import tools.critic_loss as critic
 import tools.utils as utils
 from algos.networks_td3 import ActorNetwork, CriticNetwork
@@ -467,7 +467,9 @@ class Agent_td3:
 
         self.learn_step_cntr += 1
 
-        learning_tests.td3_critic_stability(self.learn_step_cntr, q1, q2, batch_target)
+        test_live_learning.td3_critic_stability(
+            self.learn_step_cntr, q1, q2, batch_target
+        )
 
         if self.learn_step_cntr % self.target_critic_update == 0:
             self._update_critic_parameters()

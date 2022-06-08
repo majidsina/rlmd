@@ -32,7 +32,7 @@ from gym import spaces
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-from tests.input_tests import coin_flip_env_tests, multi_env_tests
+from tests.test_input_envs import coin_flip_env_tests, multi_env_tests
 from tools.env_resources import multi_dones
 
 # fmt: off

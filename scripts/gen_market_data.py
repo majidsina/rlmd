@@ -70,7 +70,7 @@ import pandas_datareader.data as pdr
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-from tests.input_tests import market_data_tests
+from tests.test_input_extra import market_data_tests
 
 """
     ********************************************************************************

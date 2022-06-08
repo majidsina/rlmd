@@ -95,21 +95,23 @@ There are also additional prerequisites for installing certain packages (without
 * `gym`: The interface compiler [SWIG](http://www.swig.org/) must be [installed](http://www.swig.org/Doc4.0/SWIGDocumentation.pdf) to connect C/C++ programs with scripting languages. For Linux either build from the distributed tarball or directly fetch the package from a repository. On Windows, extract the swigwin zip file and add its directory to the system PATH environment variable.
 * `pandas-datareader`: Required only when updating existing or creating new market environments by directly obtaining historical financial market data (prices and volumes).
 * `pybullet`: A C/C++ compiler such as [GCC](https://gcc.gnu.org/) is necessary for [PyBullet](https://pybullet.org). On Windows, install [Microsoft Visual Studio Community](https://visualstudio.microsoft.com/) and in the installer select the “Desktop development with C++” workload with both optional features “MSVC v143 - VS 2022 C++ x64/x86 build tools” and the “Windows 10 SDK”.
-* `torch`: Only the exact version with a compatible compute platforms should be used following the official [instructions](https://pytorch.org/get-started/locally/). Different versions can significantly reduce speed and lead to broken function/method calls.
+* `torch`: Installation should be done following the official [instructions](https://pytorch.org/get-started/locally/).
+
+Note only the exact versions should be utilised as others can significantly reduce speed, cause broken function/method calls, and lead to failed tests.
 
 ## Tests
 Comprehensive tests during compilation have been written for all user inputs.
 
 A reduced scale test across all optimal leverage experiments is performed with:
 ```commandline
-python tests/lev_tests.py
+python tests/test_script_lev.py
 ```
 
 The agent learning script will also terminate if critic network backpropagation fails mainly due to the use of strong outlier-supressing critic loss functions and or divergence in particular environment state components.
 
 An initial test for the early stability of agent training across a variety of scenarios can be conducted using:
 ```commandline
-python tests/agent_tests.py
+python tests/test_script_agent.py
 ```
 
 ## References

@@ -41,7 +41,7 @@ NDArrayFloat = npt.NDArray[np.float_]
 
 import plotting.plots_multiverse as plots
 from lev.lev_exp import dice_big_brain_lev, dice_fixed_final_lev, dice_smart_lev
-from tests.input_tests import dice_roll_tests
+from tests.test_input_lev import dice_roll_tests
 
 # fmt: off
 

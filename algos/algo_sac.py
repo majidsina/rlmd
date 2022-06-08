@@ -29,7 +29,7 @@ import torch as T
 
 NDArrayFloat = npt.NDArray[np.float_]
 
-import tests.learning_tests as learning_tests
+import tests.test_live_learning as test_live_learning
 import tools.critic_loss as critic
 import tools.utils as utils
 from algos.networks_sac import ActorNetwork, CriticNetwork
@@ -476,7 +476,7 @@ class Agent_sac:
 
         self.learn_step_cntr += 1
 
-        learning_tests.sac_critic_stability(
+        test_live_learning.sac_critic_stability(
             self.learn_step_cntr, q1, q2, soft_q, batch_target
         )
 

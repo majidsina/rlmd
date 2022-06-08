@@ -190,7 +190,7 @@ inputs: dict = {
 
         # guidance environment execution parameters
             "n_trials_gud": 10,                 # ibid.
-            "n_cumsteps_gud": 3e4,              # ibid.
+            "n_cumsteps_gud": 5e4,              # ibid.
             "eval_freq_gud": 1e3,               # ibid.
             "n_eval_gud": 1e2,                  # ibid.
             "max_eval_steps_gud": 1e3,          # ibid.
@@ -262,7 +262,7 @@ inputs: dict = {
 
 if __name__ == "__main__":
 
-    from tests.input_tests import algo_method_checks, env_tests, learning_tests
+    from tests.test_input_agent import algo_method_checks, env_tests, learning_tests
     from tools.utils import (
         device_details,
         env_dynamics,

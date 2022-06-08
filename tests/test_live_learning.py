@@ -1,5 +1,5 @@
 """
-title:                  learning_tests.py
+title:                  test_learning.py
 python version:         3.10
 torch verison:          1.11
 
@@ -13,8 +13,8 @@ linkedin:               https://www.linkedin.com/in/rajagrewal
 website:                https://www.github.com/rajabinks
 
 Description:
-    Responsible for conducting tests for agent critic network while learning for
-    both algorithms.
+    Responsible for conducting tests for agent critic network while live learning
+    for both algorithms.
 """
 
 from typing import List

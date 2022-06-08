@@ -29,7 +29,7 @@ import numpy as np
 import pybullet_envs
 
 import plotting.plots_summary as plots
-import tests.learning_tests as learning_tests
+import tests.test_live_learning as test_live_learning
 import tools.eval_episodes as eval_episodes
 import tools.utils as utils
 from algos.algo_sac import Agent_sac
@@ -170,7 +170,7 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
                             ):
                                 loss, logtemp, loss_params = agent.learn()
 
-                                learning_tests.critic_learning(
+                                test_live_learning.critic_learning(
                                     cum_steps,
                                     inputs["mini_batch_size"],
                                     episode,
