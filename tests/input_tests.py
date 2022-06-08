@@ -95,7 +95,7 @@ def coin_flip_tests(
         Refer to `./lev/coin_flip.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
-    assert INVESTORS > 0
+    assert INVESTORS > 1
     assert isinstance(HORIZON, (float, int)), tfi
     assert HORIZON > 0
     assert isinstance(TOP, (float, int)), tfi
@@ -217,7 +217,7 @@ def dice_roll_tests(
         Refer to `./lev/dice_roll.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
-    assert INVESTORS > 0
+    assert INVESTORS > 1
     assert isinstance(HORIZON, (float, int)), tfi
     assert HORIZON > 0
     assert isinstance(TOP, (float, int)), tfi
@@ -315,7 +315,7 @@ def dice_roll_sh_tests(
         Refer to `./lev/dice_roll_sh.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
-    assert INVESTORS > 0
+    assert INVESTORS > 1
     assert isinstance(HORIZON, (float, int)), tfi
     assert HORIZON > 0
     assert isinstance(TOP, (float, int)), tfi
@@ -391,7 +391,7 @@ def gbm_tests(
         Refer to `./lev/gbm.py` for input details.
     """
     assert isinstance(INVESTORS, (float, int)), tfi
-    assert INVESTORS > 0
+    assert INVESTORS > 1
     assert isinstance(HORIZON, (float, int)), tfi
     assert HORIZON > 0
     assert isinstance(TOP, (float, int)), tfi
