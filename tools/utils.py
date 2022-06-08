@@ -8,8 +8,9 @@ import style:           isort==5.10
 
 copyright (C):          https://www.gnu.org/licenses/agpl-3.0.en.html
 author:                 J. S. Grewal (2022)
-email:                  <raja (_] grewal1 [at} pm {dot) me>
+email:                  <rg (_] public [at} proton {dot) me>
 linkedin:               https://www.linkedin.com/in/rajagrewal
+website:                https://github.com/rajabinks
 
 Description:
     Responsible for various additional tools required for file naming,
