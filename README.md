@@ -1,8 +1,8 @@
 # Reinforcement Learning in Multiplicative Domains
 
-[![temp-rgrewal - rlmd](https://img.shields.io/static/v1?label=temp-rgrewal&message=rlmd&color=blue&logo=github)](https://github.com/temp-rgrewal/rlmd "Go to GitHub repo")
-[![GitHub release](https://img.shields.io/github/release/temp-rgrewal/rlmd)](https://github.com/temp-rgrewal/rlmd/releases)
-[![License](https://img.shields.io/badge/License-AGPLv3-green)](https://github.com/temp-rgrewal/rlmd/blob/master/LICENSE)
+[![rajabinks - rlmd](https://img.shields.io/static/v1?label=rajabinks&message=rlmd&color=blue&logo=github)](https://www.github.com/rajabinks/rlmd "Go to GitHub repo")
+[![GitHub release](https://img.shields.io/github/release/rajabinks/rlmd)](https://www.github.com/rajabinks/rlmd/releases)
+[![License](https://img.shields.io/badge/License-AGPLv3-green)](https://www.github.com/rajabinks/rlmd/blob/master/LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 
@@ -47,7 +47,7 @@ The data regarding optimal leverage experiments (NumPy arrays), agent training p
 The breakdown for optimal leverage experiments, additive agents, multiplicative agents, and market agents are 0.4 GB, 2.7 GB, 1.4 GB, and 0.9 GB respectively. All data is available upon request.
 
 ## Usage
-Using the latest [release](https://github.com/temp-rgrewal/rlmd/releases) is recommended where we adhere to [semantic](https://semver.org/) versioning.
+Using the latest [release](https://www.github.com/rajabinks/rlmd/releases) is recommended where we adhere to [semantic](https://semver.org/) versioning.
 
 Binary coin flip, trinary die roll, and geometric Brownian motion (GBM) experiments pertaining to empirical optimal leverages are contained in the `lev/` directory with instructions provided inside each of the files.
 
@@ -59,7 +59,7 @@ Final aggregated figures for all agent experiments that share common training pa
 
 Accessing the code involves the following commands:
 ```commandline
-git clone https://github.com/temp-rgrewal/rlmd.git
+git clone https://www.github.com/rajabinks/rlmd.git
 
 cd rlmd
 ```
@@ -138,7 +138,7 @@ If you use any of this work, please cite our results like this:
   title         = {Reinforcement Learning in Multiplicative Domains},
   publisher     = {GitHub},
   journal       = {GitHub Repository},
-  howpublished  = {\url{https://github.com/rajabinks/rlmd}},
+  howpublished  = {\url{https://www.github.com/rajabinks/rlmd}},
   year          = {2022}
   }
 ```

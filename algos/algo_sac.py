@@ -10,7 +10,7 @@ copyright (C):          https://www.gnu.org/licenses/agpl-3.0.en.html
 author:                 J. S. Grewal (2022)
 email:                  <rg (_] public [at} proton {dot) me>
 linkedin:               https://www.linkedin.com/in/rajagrewal
-website:                https://github.com/rajabinks
+website:                https://www.github.com/rajabinks
 
 Description:
     Responsible for executing the Soft Actor-Critic (SAC) algorithm.

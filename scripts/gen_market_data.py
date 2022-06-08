@@ -11,7 +11,7 @@ copyright (C):                  https://www.gnu.org/licenses/agpl-3.0.en.html
 author:                         J. S. Grewal (2022)
 email:                          <rg (_] public [at} proton {dot) me>
 linkedin:                       https://www.linkedin.com/in/rajagrewal
-website:                        https://github.com/rajabinks
+website:                        https://www.github.com/rajabinks
 
 Description:
     Collects market data from online sources and creates NumPy arrays ready for
@@ -77,7 +77,7 @@ from tests.input_tests import market_data_tests
     AS OF THE TIMING OF THIS MOST RECENT COMMIT, STOOQ NO LONGER ALLOWS THE
     DOWNLOADING OF COMMODITIES DATA AND SO THEY WILL RETURN AN ERROR.
     https://github.com/pydata/pandas-datareader/issues/925
-    https://github.com/rajabinks/stooq-commodities
+    https://www.github.com/rajabinks/stooq-commodities
     ********************************************************************************
 """
 
