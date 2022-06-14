@@ -230,12 +230,12 @@ if __name__ == "__main__":
         multi_steps += [5]
 
     # clean-up test files from earlier uncompleted tests
-    if os.path.exists("./results/additive-test/"):
-        shutil.rmtree("./results/additive-test/")
-    if os.path.exists("./results/multiplicative-test/"):
-        shutil.rmtree("./results/multiplicative-test/")
-    if os.path.exists("./results/market-test/"):
-        shutil.rmtree("./results/market-test/")
+    if os.path.exists("./results/test_additive/"):
+        shutil.rmtree("./results/test_additive/")
+    if os.path.exists("./results/test_multiplicative/"):
+        shutil.rmtree("./results/test_multiplicative/")
+    if os.path.exists("./results/test_market/"):
+        shutil.rmtree("./results/test_market/")
 
     device_details(inputs)
 
@@ -309,11 +309,11 @@ if __name__ == "__main__":
     # CLEAN UP TEST FILES
 
     if TEST_PYBULLET == 1:
-        shutil.rmtree("./results/additive-test/")
+        shutil.rmtree("./results/test_additive/")
     if TEST_MULTI == 1 or TEST_MULTI_SH == 1:
-        shutil.rmtree("./results/multiplicative-test/")
+        shutil.rmtree("./results/test_multiplicative/")
     if TEST_MARKET == 1:
-        shutil.rmtree("./results/market-test/")
+        shutil.rmtree("./results/test_market/")
 
     print(
         "--------------------------------------------------------------------------------"

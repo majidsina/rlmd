@@ -95,8 +95,8 @@ def multiplicative_env(gym_envs: dict, inputs: dict, n_gambles: int) -> None:
     risk_dim = utils.multi_log_dim(inputs, n_gambles)
 
     if inputs["test_agent"]:
-        if not os.path.exists("./results/multiplicative-test/data/" + inputs["env_id"]):
-            os.makedirs("./results/multiplicative-test/data/" + inputs["env_id"])
+        if not os.path.exists("./results/test_multiplicative/data/" + inputs["env_id"]):
+            os.makedirs("./results/test_multiplicative/data/" + inputs["env_id"])
     else:
         if not os.path.exists("./results/multiplicative/data/" + inputs["env_id"]):
             os.makedirs("./results/multiplicative/data/" + inputs["env_id"])

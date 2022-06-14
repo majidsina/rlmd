@@ -73,8 +73,8 @@ def additive_env(gym_envs: dict, inputs: dict) -> None:
     env = env.env
 
     if inputs["test_agent"]:
-        if not os.path.exists("./results/additive-test/data/" + inputs["env_id"]):
-            os.makedirs("./results/additive-test/data/" + inputs["env_id"])
+        if not os.path.exists("./results/test_additive/data/" + inputs["env_id"]):
+            os.makedirs("./results/test_additive/data/" + inputs["env_id"])
     else:
         if not os.path.exists("./results/additive/data/" + inputs["env_id"]):
             os.makedirs("./results/additive/data/" + inputs["env_id"])

@@ -108,8 +108,8 @@ def market_env(
     risk_dim = utils.market_log_dim(inputs, n_assets)
 
     if inputs["test_agent"]:
-        if not os.path.exists("./results/market-test/data/" + inputs["env_id"]):
-            os.makedirs("./results/market-test/data/" + inputs["env_id"])
+        if not os.path.exists("./results/test_market/data/" + inputs["env_id"]):
+            os.makedirs("./results/test_market/data/" + inputs["env_id"])
     else:
         if not os.path.exists("./results/market/data/" + inputs["env_id"]):
             os.makedirs("./results/market/data/" + inputs["env_id"])

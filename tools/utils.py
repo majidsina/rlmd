@@ -213,8 +213,7 @@ def save_directory(inputs: dict, results: bool) -> str:
         dir.append("t" + str(inputs["trial"]))
 
     if inputs["test_agent"]:
-        dir[1] = dir[1][:-1]
-        dir[1] += "-test/"
+        dir[1] = "test_" + dir[1]
 
     directory = "".join(dir)
 

@@ -120,22 +120,20 @@ class Agent_sac:
         self.learn_step_cntr = 0
 
         # directory to save network checkpoints
-        dir = "./results/"
         match inputs["dynamics"]:
             case "A":
-                dir += "additive/"
+                dyna = "additive/"
             case "M":
-                dir += "multiplicative/"
+                dyna = "multiplicative/"
             case "MKT":
-                dir += "market/"
+                dyna = "market/"
             case "GUD":
-                dir += "guidance/"
+                dyna = "guidance/"
 
         if inputs["test_agent"]:
-            dir = dir[:-1]
-            dir += "-test/"
+            dyna = "test_" + dyna
 
-        dir += "models/" + str(inputs["env_id"])
+        dir = "./results/" + dyna + "models/" + str(inputs["env_id"])
 
         if not os.path.exists(dir):
             os.makedirs(dir)

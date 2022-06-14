@@ -115,8 +115,8 @@ GBM_l1_l, GBM_l1_h, GBM_l1_i = [-1.0, 0.2], [1.0, 2.0], [0.2, 0.2]
 
 if __name__ == "__main__":
 
-    path_results = "./results/multiverse-test/"  # directory for saving numpy arrays
-    path_figs = "./results/figs-test/"  # directory to save figures
+    path_results = "./results/test_multiverse/"  # directory for saving numpy arrays
+    path_figs = "./results/test_figs/"  # directory to save figures
 
     levarge_tests(
         INVESTORS,
