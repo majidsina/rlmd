@@ -1,4 +1,4 @@
-gym==0.24.0
+gym==0.24.1
 matplotlib==3.5.2
 pandas-datareader==0.10.0
 pybullet==3.2.5

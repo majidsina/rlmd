@@ -95,7 +95,7 @@ def eval_additive(
         )
     )
 
-    eval_env = gym.make(inputs["env_id"], disable_env_checker=False)
+    eval_env = gym.make(inputs["env_id"], disable_env_checker=True)
 
     for eval in range(int(inputs["n_eval"])):
         start_time = time.perf_counter()
